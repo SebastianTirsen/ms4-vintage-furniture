@@ -38,7 +38,7 @@
             <div id="top-nav" class="row bg-white pt-lg-2 d-none d-lg-flex">
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                     <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                        <img class="logo-transparent" src="{{ MEDIA_URL }}logo-transp.png" alt="logo">
+                        <img class="logo-transparent" src="{{ MEDIA_URL }}logo-transp.png" alt="logo" width="50px" height="50px">
                         <h2 class="logo-font logo-text text-black my-0"><strong>Vintage Furniture</strong></h2>
                     </a>
                 </div>
@@ -66,6 +66,7 @@
                                 </div>
                             </a>
                             <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                                <div class="text-center">
                                 {% if request.user.is_authenticated %}
                                     {% if request.user.is_superuser %}
                                         <a href="" class="dropdown-item">Product Management</a>
@@ -100,6 +101,14 @@
                                 </div>
                             </a>
                         </li>
+                        <li class="list-inline-item">
+                            <a class="nav-link text-black">
+                                <div class="text-center">
+                                    <i class="fas fa-lg fa-regular fa-heart"></i></div>
+                                    <p class="my-0">My Wishlist</p>
+                                </div>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -108,7 +117,8 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                   
+                    {% include 'includes/mobile-top-header.html' %}
+                    {% include 'includes/main-nav.html' %}
                 </nav> 
             </div>
             <div id="" class="row">
