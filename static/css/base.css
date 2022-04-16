@@ -111,6 +111,23 @@ margin-top: 2rem;
     border: 4px solid black;
   }
 
+.furniture-card {
+    margin: 20px;
+}
+
+.furniture-row {
+    justify-content: center;
+}
+
+.bookends {
+    position: relative;
+    border-width: 5px;
+    border-color: hsl(0, 0%, 50%) transparent;
+    height: 11px;
+    border-style: double;
+    width: 20%;
+  }
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */

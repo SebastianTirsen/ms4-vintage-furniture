@@ -11,10 +11,50 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="backdrop"></div>
+<div class="container-fluid">
     <div class="row">
-        <div class="col">
-            {{ furnitures }}
+        <div class="col text-center mt-3">
+            <h2 class="logo-font">Furnitures & Lighting</h2>
+            <hr class="fat-hr w-50 mb-1">
+        </div>
+    </div>
+    <div class="row">
+        <div class="furniture-container col-10 offset-1">
+            <div class="row mt-1 mb-2"></div>
+            <div class="row furniture-row">
+                {% for furniture in furnitures %}
+                    <div class="furniture-card col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <div class="card h-100 border-0">
+                            {% if furniture.image %}
+                                <a href="">
+                                    <img class="card-img-top img-fluid" src="{{ furniture.image.url }}" alt="{{ furniture.name }}">
+                                </a>
+                            {% else %}
+                                <a href="">
+                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ furniture.name }}">
+                                </a>
+                            {% endif %}
+                            <div class="card-body pb-0">
+                                <p class="mb-0">{{ furniture.brand }}</p>
+                            </div>
+                            <div class="card-body pb-0 mt-0">
+                                <p class="mb-0"><strong>{{ furniture.name }}</strong></p>
+                            </div>
+                            <div class="card-body mt-0">
+                                <p class="mb-0">{{ furniture.condition }}</p>
+                            </div>
+                            <div class="card-footer bg-white pt-0 border-0 text-left">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="lead mb-0 text-left font-weight-bold">{{ furniture.price }} SEK</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>
