@@ -30,7 +30,7 @@ class Furniture(models.Model):
     choices = (
             ('1', 'Like New'),
             ('2', 'Good'),
-            ('2', 'Worn'),
+            ('3', 'Worn'),
         )
   
     condition = models.CharField(max_length=300, null=True, blank=True, choices = choices)
