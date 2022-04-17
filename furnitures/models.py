@@ -25,7 +25,7 @@ class Furniture(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2)
     dimensions = models.CharField(max_length=254)
     material = models.CharField(max_length=254)
-    Production = models.CharField(max_length=254)
+    production = models.CharField(max_length=254)
 
     choices = (
             ('1', 'Like New'),

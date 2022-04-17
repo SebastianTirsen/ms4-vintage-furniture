@@ -14,7 +14,7 @@
                 <a href="" class="dropdown-item">By Brand</a>
                 <a href="" class="dropdown-item ">By Rating</a>
                 <a href="" class="dropdown-item ">By Category</a>
-                <a href="{% url 'furnitures' %}" class="dropdown-item">All Furniture</a>
+                <a href="{% url 'furnitures' %}" class="dropdown-item">All Furniture & Lighting</a>
             </div>
         </li>
         
@@ -23,10 +23,11 @@
                 Furniture
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item">Tables</a>
-                <a href="" class="dropdown-item">Chairs</a>
-                <a href="" class="dropdown-item">Storage</a>
-                <a href="" class="dropdown-item">Shelves</a>
+                <a href="{% url 'furnitures' %}?category=Tables" class="dropdown-item">Tables</a>
+                <a href="{% url 'furnitures' %}?category=Chairs" class="dropdown-item">Chairs</a>
+                <a href="{% url 'furnitures' %}?category=Storage" class="dropdown-item">Storage</a>
+                <a href="{% url 'furnitures' %}?category=Shelves"" class="dropdown-item">Shelves</a>
+                <a href="{% url 'furnitures' %}?category=Tables,Chairs,Storage,Shelves"" class="dropdown-item">All Furniture</a>
             </div>
         </li>
 
@@ -35,9 +36,10 @@
                 Lighting
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
-                <a href="" class="dropdown-item">Ceiling & Wall Lights</a>
-                <a href="" class="dropdown-item">Desk Lamps</a>
-                <a href="" class="dropdown-item">Floor Lamps</a>
+                <a href="{% url 'furnitures' %}?category=ceiling_wall_lights" class="dropdown-item">Ceiling & Wall Lights</a>
+                <a href="{% url 'furnitures' %}?category=desk_lamps" class="dropdown-item">Desk Lamps</a>
+                <a href="{% url 'furnitures' %}?category=floor_lamps" class="dropdown-item">Floor Lamps</a>
+                <a href="{% url 'furnitures' %}?category=ceiling_wall_light,desk_lamps,floor_lamps" class="dropdown-item">All Lighting</a>
             </div>
         </li>
 
