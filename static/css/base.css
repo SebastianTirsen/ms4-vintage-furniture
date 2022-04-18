@@ -136,6 +136,53 @@ a.category-badge > span.badge:hover {
     margin: 0 auto;
 }
 
+/*----------------------------------Footer-------------------------------*/
+
+.footer-container {
+    width: auto;
+    border-top: 8px solid #212529;
+    background-color: #74AA50;
+    color:#212529;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 16px;
+}
+
+.footer-container i {
+    color:#212529;
+}
+.description {
+   margin-left: 16px;
+    width: 15%;
+    font-size: 0.75rem;
+}
+.social-media {
+    width: 15%;
+    margin: 0 auto;
+    text-align: center;
+}
+.social-media a {
+    margin: 10px;
+    font-size: 1.5rem;
+}
+
+.social-media span {
+    font-size: 0.75rem;
+}
+
+.footer-contact {
+margin-right: 16px;
+font-size: 0.75rem;
+width: 15%;
+text-align: left;
+}
+#postcode {
+    margin-right: 23px;
+}
+#country {
+    margin-right: 40px;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */

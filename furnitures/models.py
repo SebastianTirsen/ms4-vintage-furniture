@@ -28,9 +28,9 @@ class Furniture(models.Model):
     production = models.CharField(max_length=254)
 
     choices = (
-            ('1', 'Like New'),
-            ('2', 'Good'),
-            ('3', 'Worn'),
+            ('Like New', 'Like New'),
+            ('Good', 'Good'),
+            ('Worn', 'Worn'),
         )
   
     condition = models.CharField(max_length=300, null=True, blank=True, choices = choices)
