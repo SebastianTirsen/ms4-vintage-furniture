@@ -10,10 +10,9 @@
                 All Furniture
                 </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">By Price</a>
-                <a href="" class="dropdown-item">By Brand</a>
-                <a href="" class="dropdown-item ">By Rating</a>
-                <a href="" class="dropdown-item ">By Category</a>
+                <a href="{% url 'furnitures' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'furnitures' %}?sort=brand&direction=asc" class="dropdown-item">By Brand</a>
+                <a href="{% url 'furnitures' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
                 <a href="{% url 'furnitures' %}" class="dropdown-item">All Furniture & Lighting</a>
             </div>
         </li>
