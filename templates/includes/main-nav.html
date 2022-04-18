@@ -6,10 +6,10 @@
             </a>
         </div>
         <li class="nav-item dropdown">
-                <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-furnitures-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Furniture
                 </a>
-            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+            <div class="dropdown-menu border-0" aria-labelledby="all-furnitures-link">
                 <a href="{% url 'furnitures' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
                 <a href="{% url 'furnitures' %}?sort=brand&direction=asc" class="dropdown-item">By Brand</a>
                 <a href="{% url 'furnitures' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
@@ -21,12 +21,12 @@
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="furniture-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Furniture
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
+            <div class="dropdown-menu border-0" aria-labelledby="furniture-link">
                 <a href="{% url 'furnitures' %}?category=Tables" class="dropdown-item">Tables</a>
                 <a href="{% url 'furnitures' %}?category=Chairs" class="dropdown-item">Chairs</a>
                 <a href="{% url 'furnitures' %}?category=Storage" class="dropdown-item">Storage</a>
-                <a href="{% url 'furnitures' %}?category=Shelves"" class="dropdown-item">Shelves</a>
-                <a href="{% url 'furnitures' %}?category=Tables,Chairs,Storage,Shelves"" class="dropdown-item">All Furniture</a>
+                <a href="{% url 'furnitures' %}?category=Shelves" class="dropdown-item">Shelves</a>
+                <a href="{% url 'furnitures' %}?category=Tables,Chairs,Storage,Shelves" class="dropdown-item">All Furniture</a>
             </div>
         </li>
 
@@ -34,7 +34,7 @@
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="lighting-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Lighting
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
+            <div class="dropdown-menu border-0" aria-labelledby="lighting-link">
                 <a href="{% url 'furnitures' %}?category=ceiling_wall_lights" class="dropdown-item">Ceiling & Wall Lights</a>
                 <a href="{% url 'furnitures' %}?category=desk_lamps" class="dropdown-item">Desk Lamps</a>
                 <a href="{% url 'furnitures' %}?category=floor_lamps" class="dropdown-item">Floor Lamps</a>

@@ -19,8 +19,9 @@ def all_furniture(request):
             sort = sortkey
             if sortkey == 'name':
                 sortkey = 'lower_name'
-                furnitures = furnitures.annotate(lower_name('name'))
-
+                furnitures = furnitures.annotate(lower_name=Lower('name'))
+            if sortkey == 'category':
+                sortkey = 'category__name'
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
