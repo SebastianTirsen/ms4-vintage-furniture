@@ -108,6 +108,20 @@ margin-top: 2rem;
     color:#212529 !important;
 }
 
+.btt-button {
+    color: #212529;
+    background-color:#74AA50 ;
+    height: 72px;
+    width: 72px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.btt-link {
+    cursor: pointer;
+}
+
 .carousel-inner {
     text-align: center;
 }
@@ -127,6 +141,10 @@ margin-top: 2rem;
 a.category-badge > span.badge:hover {
     background: #74AA50 !important;
     color: #fff !important;
+}
+
+.desc {
+    font-weight: bold;
 }
 
 
