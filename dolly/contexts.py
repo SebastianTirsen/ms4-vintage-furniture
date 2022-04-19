@@ -22,7 +22,7 @@ def dolly_contents(request):
         'furniture_count': furniture_count,
         'delivery': delivery,
         'free_delivery_difference': free_delivery_difference,
-        'free_delivery_threshold': settings.free_delivery_threshold,
+        'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'grand_total': grand_total,
     }
 
