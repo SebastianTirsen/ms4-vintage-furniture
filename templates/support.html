@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <form style="width: 50%; margin-left: 25%; margin-top: 10%;" method="post" novalidate>
+    <h1>Write us a support question</h1>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+{% endblock %}

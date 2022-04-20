@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Furniture, Category
+from .models import Furniture, Category, Support
 
 # Register your models here.
 
@@ -21,6 +21,12 @@ class CategoryAdmin(admin.ModelAdmin):
         'name',
     )
 
+class SupportAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'description',
+    )
 
+admin.site.register(Support, SupportAdmin)
 admin.site.register(Furniture, FurnitureAdmin)
 admin.site.register(Category, CategoryAdmin)

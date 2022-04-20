@@ -40,3 +40,8 @@ class Furniture(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Support(models.Model):
+    name = models.CharField(max_length=130)
+    description = models.TextField(blank=True)

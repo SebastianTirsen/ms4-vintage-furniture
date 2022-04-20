@@ -2,7 +2,11 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Furniture, Category
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
+
+from .models import Furniture, Category, Support
+
 
 # Create your views here.
 
@@ -64,3 +68,11 @@ def furniture_detail(request, furniture_id):
     }
 
     return render(request, 'furnitures/furniture_detail.html', context)
+
+
+class SupportCreateView(CreateView):
+    model = Support
+    fields = ('name', 'description')
+    template_name = 'support.html'
+    success_url = reverse_lazy('home')
+
