@@ -76,14 +76,6 @@ body {
     color: white;
 }
 
-.text-black {
-    color: #000 !important;
-}
-
-.center-text {
-    text-align: center;
-}
-
 #main-text {
 margin-top: 2rem;
 }
@@ -147,12 +139,23 @@ a.category-badge > span.badge:hover {
     font-weight: bold;
 }
 
+div.dropdown-menu {
+    z-index: 9999;
 
+}
 
 /* ---------------Helpers----------------- */
 
 .center-stage {
     margin: 0 auto;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.text-black {
+    color: #000 !important;
 }
 
 /*----------------------------------Footer-------------------------------*/
