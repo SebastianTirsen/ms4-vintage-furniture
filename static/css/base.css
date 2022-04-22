@@ -135,9 +135,6 @@ a.category-badge > span.badge:hover {
     color: #fff !important;
 }
 
-.desc {
-    font-weight: bold;
-}
 
 div.dropdown-menu {
     z-index: 9999;
@@ -146,6 +143,23 @@ div.dropdown-menu {
 
 .remove-item {
     cursor: pointer;
+}
+
+.message-container {
+    position: fixed;
+    top: 70px;
+    right: 16px;
+    z-index: 9999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+
+}
+
+.toast-capper {
+    height: 2px;
+
 }
 
 /* ---------------Helpers----------------- */
@@ -160,6 +174,10 @@ div.dropdown-menu {
 
 .text-black {
     color: #000 !important;
+}
+
+.desc {
+    font-weight: bold;
 }
 
 /*----------------------------------Footer-------------------------------*/

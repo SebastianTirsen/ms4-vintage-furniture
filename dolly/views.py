@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect, reverse
+from django.contrib import messages
+
+from furnitures.models import Furniture
 
 # Create your views here.
 
@@ -7,6 +10,7 @@ def view_dolly(request):
     return render(request, 'dolly/dolly.html')
 
 def put_on_dolly(request, item_id):
+    furniture = Furniture.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     dolly = request.session.get('dolly', {})
@@ -15,6 +19,7 @@ def put_on_dolly(request, item_id):
         dolly[item_id] += quantity
     else:
         dolly[item_id] = quantity
+        messages.success(request, f'You put { furniture.name } on your Dolly! ')
 
     request.session['dolly'] = dolly
     return redirect(redirect_url)
