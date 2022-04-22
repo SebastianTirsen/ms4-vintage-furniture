@@ -1,8 +1,4 @@
-from django.shortcuts import render, redirect
-
-# Create your views here.
-
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 
 # Create your views here.
 
@@ -22,3 +18,11 @@ def put_on_dolly(request, item_id):
 
     request.session['dolly'] = dolly
     return redirect(redirect_url)
+
+
+def remove_from_dolly(request, item_id):
+    dolly = request.session.get('dolly', {})
+    dolly.pop(item_id)
+
+    request.session['dolly'] = dolly
+    return redirect(reverse('view_dolly'))

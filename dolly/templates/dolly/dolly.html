@@ -53,6 +53,12 @@
                                     <td class="py-3">
                                         <p class="my-0">{{ item.furniture.price }} SEK</p>
                                     </td>
+                                    <form class="form update-form" method="POST" action="{% url 'remove_from_dolly' item.item_id %}">
+                                        {% csrf_token %}
+                                    </form>
+                                    <td class="py-3">
+                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}"><small>Remove</small></a>
+                                    </td>
                                 </tr>
                             {% endfor %}
                                 <tr>
@@ -98,4 +104,21 @@
         </div>
     </div>
 {% include 'includes/footer.html' %}
+{% endblock %}
+
+{% block postloadjs %}
+<script type="text/javascript">
+    // Remove item and reload on click
+    $('.remove-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var url = `/dolly/remove/${itemId}/`;
+        var data = {'csrfmiddlewaretoken': csrfToken};
+
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    })
+</script>
 {% endblock %}

@@ -7,6 +7,7 @@ def dolly_contents(request):
 
     dolly_items = []
     total = 0
+    quantity = 0
     furniture_count = 0
     dolly = request.session.get('dolly', {})
 

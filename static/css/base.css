@@ -144,6 +144,10 @@ div.dropdown-menu {
 
 }
 
+.remove-item {
+    cursor: pointer;
+}
+
 /* ---------------Helpers----------------- */
 
 .center-stage {
