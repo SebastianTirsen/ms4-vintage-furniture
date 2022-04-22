@@ -22,7 +22,7 @@ def put_on_dolly(request, item_id):
 
 def remove_from_dolly(request, item_id):
     dolly = request.session.get('dolly', {})
-    dolly.pop(item_id)
+    dolly.pop[item_id]
 
     request.session['dolly'] = dolly
     return redirect(reverse('view_dolly'))
