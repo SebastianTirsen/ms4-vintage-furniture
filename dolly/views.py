@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
 
 from furnitures.models import Furniture
@@ -10,7 +10,7 @@ def view_dolly(request):
     return render(request, 'dolly/dolly.html')
 
 def put_on_dolly(request, item_id):
-    furniture = Furniture.objects.get(pk=item_id)
+    furniture = get_object_or_404(Furniture, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     dolly = request.session.get('dolly', {})
@@ -26,8 +26,15 @@ def put_on_dolly(request, item_id):
 
 
 def remove_from_dolly(request, item_id):
-    dolly = request.session.get('dolly', {})
-    dolly.pop(item_id)
+    try:
+        furniture = get_object_or_404(Furniture, pk=item_id)
+        dolly = request.session.get('dolly', {})
+        dolly.pop(item_id)
+        messages.success(request, f'Unloaded { furniture.name } from your Dolly!')
 
-    request.session['dolly'] = dolly
-    return redirect(reverse('view_dolly'))
+        request.session['dolly'] = dolly
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        messages.error(request, f'Error unloading item: {e} from your Dolly!')
+    return HttpResponse(status=500)
