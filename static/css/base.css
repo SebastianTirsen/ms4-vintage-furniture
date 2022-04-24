@@ -25,6 +25,10 @@ body {
     font-family: Lato;
 }
 
+.support-form {
+    margin-top: 16% !important;
+}
+
 /* from Bulma´s icon class */
 .icon {
     align-items: center;

@@ -14,6 +14,12 @@
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap" rel="stylesheet">
             <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
         {% endblock %}
         {% block corejs %}
             <script src="https://kit.fontawesome.com/a4a37a7fc6.js" crossorigin="anonymous"></script>
@@ -100,7 +106,7 @@
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a class="nav-link text-black">
+                                <a class="nav-link text-black" href="{% url 'rating' %}">
                                     <div class="text-center">
                                         <div><i class="fas fa-lg fa-regular fa-star"></i></div>
                                         <p class="my-0">Rate Us</p>

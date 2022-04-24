@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from furnitures.views import SupportCreateView
+from ratings import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,4 +28,9 @@ urlpatterns = [
     path('dolly/', include('dolly.urls')),
     path('checkout/', include('checkout.urls')),
     path('support/', SupportCreateView.as_view(), name='support'),
+    path('rating', views.rating,  name='rating'),
+    path('insert_data', views.insert_data,  name='insert_data'),
+    path('update_data<int:id>', views.update_data,  name='update_data'),
+    path('delete_data<int:id>', views.delete_data,  name='delete_data'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
