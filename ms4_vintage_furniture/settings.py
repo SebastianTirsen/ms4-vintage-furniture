@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'furnitures',
     'dolly',
     'crispy_forms',
+    'checkout',
 ]
 
 MIDDLEWARE = [
