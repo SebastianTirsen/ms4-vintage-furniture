@@ -23,7 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('', include('home.urls')),
-    path('furnitures', include('furnitures.urls')),
+    path('furnitures/', include('furnitures.urls')),
     path('dolly/', include('dolly.urls')),
+    path('checkout/', include('checkout.urls')),
     path('support/', SupportCreateView.as_view(), name='support'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
