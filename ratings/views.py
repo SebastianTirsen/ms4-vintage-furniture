@@ -1,6 +1,6 @@
-from django.shortcuts import render, HttpResponse, redirect
-from .models import Rating
+from django.shortcuts import render, redirect
 from django.contrib import messages
+from .models import Rating
 
 
 def rating(request):
@@ -14,9 +14,10 @@ def insert_data(request):
         name = request.POST['name']
         description = request.POST['description']
         if(name == '' or description == ''):
-            messages.warning(request, "Fill in your rating ...")
+            messages.warning(request, 'Fill in your rating ...')
         else:
             rate = Rating(name=name, description=description)
+            rate.user = request.user
             rate.save()
     return redirect(rating)
 
@@ -26,9 +27,10 @@ def update_data(request, id):
         name = request.POST['name']
         description = request.POST['description']
         if(name == '' or description == ''):
-            messages.warning(request,"Fill in your rating ...")
+            messages.warning(request, 'Fill in your rating ...')
         else:
-            rate = Rating(name = name, description = description, id = id)
+            rate = Rating(name=name, description=description, id=id)
+            rate.user = request.user
             rate.save()
 
     return redirect(rating)

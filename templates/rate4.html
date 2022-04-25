@@ -172,8 +172,7 @@
                             <tr>
                                 <td style="width: 20vw;">{{rating.name}}</td>
                                 <td style="width: 50vw;">{{rating.description}}</td>
- 
-                                {% if request.user.is_authenticated and request.user == rating.user %}
+                                {% if request.user.is_authenticated and request.user == rating.user%}
                                 <td>
                                     <a href="#deleteRatingModal{{rating.id}}" class="btn btn-danger float-right" data-toggle="modal">Delete</a>
                                     <a href="#editRatingModal{{rating.id}}" class="btn btn-success float-right" data-toggle="modal" data-target="#editRatingModal{{rating.id}}">Edit</a>
