@@ -6,7 +6,7 @@
     <h1>Write us a support question</h1>
     {% csrf_token %}
     {{ form|crispy }}
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" class="btn btn-success" id="submit-btn">Submit</button>
   </form>
  </div>
 {% endblock %}

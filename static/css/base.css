@@ -118,6 +118,18 @@ margin-top: 2rem;
     cursor: pointer;
 }
 
+#submit-btn {
+    color: #000;
+    font-weight: bold;
+    background-color: #74AA50;
+    border: 1px solid black;
+}
+
+#submit-btn:hover {
+    background: lightgreen !important;
+    color:#212529 !important;
+}
+
 .carousel-inner {
     text-align: center;
 }

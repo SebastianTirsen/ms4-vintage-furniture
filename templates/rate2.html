@@ -20,7 +20,7 @@
     }
     .table-title {        
         padding-bottom: 15px;
-        background: black;
+        background: #8d0a40;
         color: #fff;
         padding: 16px 30px;
         margin: -20px -25px 10px;
@@ -36,7 +36,7 @@
     .table-title .btn {
         color: #fff;
         float: right;
-        font-size: 20px;
+        font-size: 13px;
         border: none;
         min-width: 50px;
         border-radius: 2px;
@@ -70,10 +70,9 @@
     table.table-striped.table-hover tbody tr:hover {
         background: #f5f5f5;
     }
-    table.table th {
-        font-size: 20px;
+    table.table th i {
+        font-size: 13px;
         margin: 0 5px;
-        margin-right: 10px;
         cursor: pointer;
     }    
     table.table td:last-child i {
@@ -82,19 +81,23 @@
         margin: 0 5px;
     }
     table.table td a {
-        color: white;
+        font-weight: bold;
+        color: #566787;
         display: inline-block;
         text-decoration: none;
-        margin-left: 10px;
         outline: none !important;
     }
     table.table td a:hover {
-        color: whitesmoke;
+        color: #2196F3;
     }
-
-    table.table td {
-        font-size: 20px;
-        width: 30vw;
+    table.table td a.edit {
+        color: #FFC107;
+    }
+    table.table td a.delete {
+        color: #F44336;
+    }
+    table.table td i {
+        font-size: 19px;
     }
     table.table .avatar {
         border-radius: 50%;
@@ -149,14 +152,8 @@
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
-                        {% if request.user.is_authenticated %}
                         <div class="col-xs-6">
-                            <a style="margin-right: 20px;" href="#addRatingModal" class="btn btn-success" data-toggle="modal"><span>Add Rating</span></a>
-                        </div>
-                      
-                        {% endif %}
-                        <div  class="col-xs-6">
-                            <h2>Customer Ratings</h2>
+                            <a href="#addRatingModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add Rating</span></a>
                         </div>
                     </div>
                 </div>
@@ -170,14 +167,12 @@
                     <tbody>
                         {% for rating in all_data %}
                             <tr>
-                                <td style="width: 20vw;">{{rating.name}}</td>
-                                <td style="width: 50vw;">{{rating.description}}</td>
-                                {% if request.user.is_authenticated and request.user == rating.user%}
+                                <td>{{rating.name}}</td>
+                                <td>{{rating.description}}</td>
                                 <td>
-                                    <a href="#deleteRatingModal{{rating.id}}" class="btn btn-danger float-right" data-toggle="modal">Delete</a>
-                                    <a href="#editRatingModal{{rating.id}}" class="btn btn-success float-right" data-toggle="modal" data-target="#editRatingModal{{rating.id}}">Edit</a>
+                                    <a href="#editRatingModal{{rating.id}}" class="edit" data-toggle="modal" data-target="#editRatingModal{{rating.id}}"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                    <a href="#deleteRatingModal{{rating.id}}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                 </td>
-                                {% endif %}
                             </tr>
                             <div id="editRatingModal{{rating.id}}" class="modal fade">
                                 <div class="modal-dialog">
