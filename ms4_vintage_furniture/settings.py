@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'dolly',
     'crispy_forms',
     'checkout',
-    'ratings'
+    'ratings',
 ]
 
 MIDDLEWARE = [
