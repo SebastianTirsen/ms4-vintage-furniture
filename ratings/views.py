@@ -40,5 +40,5 @@ def delete_data(request, id):
     if request.method == "GET":
         data = Rating.objects.filter(id=id)
         data.delete()
-        messages.error(request, 'Your rating was deleted!')
+        messages.success(request, 'Your rating was deleted!')
     return redirect(rating)
