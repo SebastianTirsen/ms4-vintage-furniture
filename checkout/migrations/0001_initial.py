@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
                 ('street_address2', models.CharField(blank=True, max_length=80, null=True)),
                 ('county', models.CharField(blank=True, max_length=80, null=True)),
                 ('date', models.DateTimeField(auto_now_add=True)),
-                ('delivery_cost', models.DecimalField(decimal_places=2, default=0, max_digits=6)),
+                ('delivery_cost', models.DecimalField(decimal_places=2, default=0, max_digits=10)),
                 ('order_total', models.DecimalField(decimal_places=2, default=0, max_digits=10)),
                 ('grand_total', models.DecimalField(decimal_places=2, default=0, max_digits=10)),
             ],
@@ -38,7 +38,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('quantity', models.IntegerField(default=1)),
-                ('lineitem_total', models.DecimalField(decimal_places=2, editable=False, max_digits=6)),
+                ('lineitem_total', models.DecimalField(decimal_places=2, editable=False, max_digits=10)),
                 ('furniture', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='furnitures.furniture')),
                 ('order', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='lineitems', to='checkout.order')),
             ],
