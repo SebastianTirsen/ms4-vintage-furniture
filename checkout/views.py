@@ -71,7 +71,7 @@ def checkout(request):
                             order_line_item.save()
                 except Furniture.DoesNotExist:
                     messages.error(request, (
-                        "One of the furnitures on your dolly wasn't found in our database. "
+                        "One of the furnitures on your dolly wasn't found in our store. "
                         "Please call us for assistance!")
                     )
                     order.delete()
