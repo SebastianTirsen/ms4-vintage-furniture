@@ -27,6 +27,7 @@ urlpatterns = [
     path('furnitures/', include('furnitures.urls')),
     path('dolly/', include('dolly.urls')),
     path('checkout/', include('checkout.urls')),
+    path('profile/', include('profiles.urls')),
     path('support/', SupportCreateView.as_view(), name='support'),
     path('rating', views.rating,  name='rating'),
     path('insert_data', views.insert_data,  name='insert_data'),
