@@ -80,7 +80,17 @@ class SupportCreateView(CreateView):
 
 def add_furniture(request):
     """ Add a product to the store """
-    form = FurnitureForm()
+    if request.method == 'POST':
+        form = FurnitureForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added furniture!')
+            return redirect(reverse('add_furniture'))
+        else:
+            messages.error(request, 'Failed to add furniture. Please ensure the form is valid.')
+    else:
+        form = FurnitureForm()
+        
     template = 'furnitures/add_furniture.html'
     context = {
         'form': form,

@@ -20,7 +20,11 @@
                     {% for item in dolly_items %}
                     <div class="row">
                         <div class="col-3 my-1">
-                            <img src="{{ item.furniture.image.url }}" alt="" class="w-100">
+                            {% if item.furniture.image %}
+                                <img src="{{ item.furniture.image.url }}" alt="{{ item.furniture.name }}" class="w-100">
+                            {% else %}
+                                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ item.furniture.name }}" class="w-100">
+                            {% endif %}
                         </div>
                         <div class="col-9">
                             <p class="my-0"><strong>{{ item.furniture.name }}</strong></p>
