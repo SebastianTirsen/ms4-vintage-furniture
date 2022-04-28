@@ -97,3 +97,27 @@ def add_furniture(request):
     }
 
     return render(request, template, context)
+
+
+def edit_furniture(request, furniture_id):
+    """ Edit a product in the store """
+    furniture = get_object_or_404(Furniture, pk=furniture_id)
+    if request.method == 'POST':
+        form = FurnitureForm(request.POST, request.FILES, instance=furniture)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated furniture!')
+            return redirect(reverse('furniture_detail', args=[furniture.id]))
+        else:
+            messages.error(request, 'Failed to update furniture. Please ensure the form is valid.')
+    else:
+        form = FurnitureForm(instance=furniture)
+        messages.info(request, f'You are editing {furniture.name}')
+
+    template = 'furnitures/edit_furniture.html'
+    context = {
+        'form': form,
+        'furniture': furniture,
+    }
+
+    return render(request, template, context)
