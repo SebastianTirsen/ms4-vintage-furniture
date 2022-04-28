@@ -60,12 +60,12 @@
                                                 <li class="small">
                                                     {% if item.product.has_sizes %}
                                                         Size {{ item.product.size|upper }}
-                                                    {% endif %}{{ item.product.name }} x{{ item.quantity }}
+                                                    {% endif %}{{ item.product.name }} {{ item.quantity }}
                                                 </li>
                                             {% endfor %}
                                         </ul>
                                     </td>
-                                    <td>${{ order.grand_total }}</td>
+                                    <td>{{ order.grand_total }} SEK</td>
                                 </tr>
                             {% endfor %}
                         </tbody>

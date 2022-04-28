@@ -1,6 +1,5 @@
 html {
     height: 100%;
-    position: relative; <=!!!
 }
 
 body {
@@ -256,15 +255,12 @@ div.dropdown-menu {
 
 .footer-container {
     width: 100%;
-    width: auto;
     border-top: 8px solid #212529;
     background-color: #74AA50;
     color:#212529;
     display: flex;
     justify-content: space-between;
     padding-top: 16px;
-    position: absolute;
-    bottom: 0;
 }
 
 .footer-container i {
