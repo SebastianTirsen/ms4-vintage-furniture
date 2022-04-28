@@ -136,6 +136,12 @@ input[name='q']::placeholder {
     color:#212529 !important;
 }
 
+#can-btn:hover,
+#add-btn:hover {
+    background: lightgreen !important;
+    color:#212529 !important;
+}
+
 .carousel-inner {
     text-align: center;
 }
@@ -249,6 +255,10 @@ div.dropdown-menu {
 
 .desc {
     font-weight: bold;
+}
+
+.bg-green {
+    background-color: #74AA50;
 }
 
 /*----------------------------------Footer-------------------------------*/

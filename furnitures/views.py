@@ -6,6 +6,7 @@ from django.views.generic import CreateView
 from django.urls import reverse_lazy
 
 from .models import Furniture, Category, Support
+from .forms import FurnitureForm
 
 
 # Create your views here.
@@ -76,3 +77,13 @@ class SupportCreateView(CreateView):
     template_name = 'support.html'
     success_url = reverse_lazy('home')
 
+
+def add_furniture(request):
+    """ Add a product to the store """
+    form = FurnitureForm()
+    template = 'furnitures/add_furniture.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)

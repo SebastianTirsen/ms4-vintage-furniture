@@ -32,8 +32,8 @@ class Furniture(models.Model):
             ('Good', 'Good'),
             ('Worn', 'Worn'),
         )
-  
-    condition = models.CharField(max_length=300, null=True, blank=True, choices = choices)
+
+    condition = models.CharField(max_length=300, null=True, blank=True, choices=choices)
 
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
