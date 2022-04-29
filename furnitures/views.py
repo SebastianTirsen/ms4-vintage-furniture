@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.views.generic import CreateView
@@ -78,8 +79,13 @@ class SupportCreateView(CreateView):
     success_url = reverse_lazy('home')
 
 
+@login_required
 def add_furniture(request):
     """ Add a product to the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = FurnitureForm(request.POST, request.FILES)
         if form.is_valid():
@@ -99,8 +105,13 @@ def add_furniture(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_furniture(request, furniture_id):
     """ Edit a product in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     furniture = get_object_or_404(Furniture, pk=furniture_id)
     if request.method == 'POST':
         form = FurnitureForm(request.POST, request.FILES, instance=furniture)
@@ -123,8 +134,13 @@ def edit_furniture(request, furniture_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_furniture(request, furniture_id):
     """ Delete a furniture from the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     furniture = get_object_or_404(Furniture, pk=furniture_id)
     furniture.delete()
     messages.success(request, 'Furniture deleted!')
