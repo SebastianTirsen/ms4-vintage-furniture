@@ -121,3 +121,11 @@ def edit_furniture(request, furniture_id):
     }
 
     return render(request, template, context)
+
+
+def delete_furniture(request, furniture_id):
+    """ Delete a furniture from the store """
+    furniture = get_object_or_404(Furniture, pk=furniture_id)
+    furniture.delete()
+    messages.success(request, 'Furniture deleted!')
+    return redirect(reverse('furnitures'))

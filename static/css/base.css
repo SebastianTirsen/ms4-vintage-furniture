@@ -140,8 +140,15 @@ input[name='q']::placeholder {
     color:#212529 !important;
 }
 
+#put-btn {
+    color: #000;
+}
+
 #can-btn:hover,
-#add-btn:hover {
+#add-btn:hover,
+#cane-btn:hover,
+#adde-btn:hover,
+#put-btn:hover  {
     background: lightgreen !important;
     color:#212529 !important;
 }
