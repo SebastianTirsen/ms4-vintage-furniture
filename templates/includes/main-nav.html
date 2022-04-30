@@ -47,10 +47,10 @@
                 Special Offers
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item">New Arrivals</a>
-                <a href="" class="dropdown-item">Deals</a>
-                <a href="" class="dropdown-item">Clearance</a>
-                <a href="" class="dropdown-item">All Specials</a>
+                <a href="{% url 'furnitures' %}?category=new_arrivals" class="dropdown-item">New Arrivals</a>
+                <a href="{% url 'furnitures' %}?category=Deals" class="dropdown-item">Deals</a>
+                <a href="{% url 'furnitures' %}?category=Clearance" class="dropdown-item">Clearance</a>
+                <a href="{% url 'furnitures' %}?category=new_arrivals,Deals,Clearance" class="dropdown-item">All Specials</a>
             </div>
         </li>
     </ul>
