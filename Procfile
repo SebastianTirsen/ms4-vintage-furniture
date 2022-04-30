@@ -1,0 +1,1 @@
+web: gunicorn ms4_vintage_furniture.wsgi:application
