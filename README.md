@@ -3,7 +3,7 @@
 The Vintage Furniture online store is the best place to shop for the furniture and lighting connoisseur. Here you can find used furniture and lamps from famous designers and brands. The furnitures condition range from worn to like new and the prices are well below the ordinary price for a brand new piece. Teh store often has a wide variety of furniture and lightings and offer a great delivery service free of charge for orders just over 1000 SEK. If you cant find the piece of furniture or lighting that you want to buy at the moment, or you have another question, feel free to contact us by sending us a message via our Support form at the top of the first page. If you make a purchase with us, we would be delighted if you would leave us a review in the ratings section at the top of the frontpage, telling us what you think about your buying experience with us. View the live Website [here](https://ms4-vintage-furniture.herokuapp.com/).
 
 
-![Mockup](readme-images/heroimage.jpeg)
+![Mockup](readme-images/mockup-vf.png)
 
 ## Table of Contents
 * [User Experience Design (UX)](#User-Experience-Design)
@@ -43,23 +43,18 @@ The Vintage Furniture online store is the best place to shop for the furniture a
 ## User Experience Design
 ### **The Strategy Plane**
 
-In the decades since home television was introduced in 1927, there have been many changes. In the beginning 
-there wasn’t a way to record a show you missed. You had to be in front of your TV at the exact time the show
-was being broadcasted. With the technologies we have today, we as comsumers have a completely new way of 
-watching TV. The streaming services have made it possible for you to watch WHAT you like, WHEN you like and
-on different devices ranging from large screens to mobile devices. There are almost a countless amount of shows
-to choose from today and sometimes it can be hard to pick the right one. We spend a big part of the evening scrolling
-through electronic perogram guides on the different streamning services. Now you dont have to anymore.
+The interior design industry has boomed in the latest years and home-styling is now a household concept. 
+The spending on furniture and lighting with high quality and design has increased exponentially. Vintage 
+Furniture is the answer to this demand, but offers furniture that are slightly used and at significantly lower
+prices to the cost conscious connoisseur.
 
-This website was created to fill the need for the fellow binge-watcher with decision anxiety. The goal is to provide
-users with a simple and easy to use website that allows them to find a new show to watch or post a show that can be shared with
-other binge-watchers. The user are also able to give ratings and write reviews of the shows that are posted and read the reviews
-and ratings made by other users.
+The goal of this Website is to provide people with an interest in buying furniture and lighting made by famous designers and brands. The Vintage Furniture Online store offers users a simple and easy to use website that allows them to find a piece of furniture or lgihting to buy at a significantly lower price than if purchased new in some other store.
 
 #### Site Goals
 * Help the users find used furniture from famous designers and brands to buy at lower prices, all in one place.
 * Inform the users about the furnitures and lightings by providing a easy-to-use website with fast access to the most 
 important details about different furnitures and lightings.
+* Offers users an easy buying experience with fast and secure checkout with card-payment.
 
 #### User stories
 * As a user, I want the main purpose of the site to be clear so that I immediately know what the site is 
@@ -223,21 +218,28 @@ Form Fields:
 ### **The Skeleton Plane**
 #### Wireframes
 
-Home:<br>
-![Home](readme-images/wire-index.jpeg)<br>
-Contact:<br>
-![Contact](readme-images/wire-contact.jpeg)<br>
-Post Show:<br>
-![Post Show](readme-images/wire-postshow.jpeg)<br>
-Show Cards:<br>
-![Show Cards](readme-images/wire-showcards.jpeg)<br>
-Profile<br>
-![Profile](readme-images/wire-profile.jpeg)<br>
-Log In:<br>
-![Log In](readme-images/wire-login.jpeg)<br>
-Register:<br>
-![Register](readme-images/wire-register.jpeg)<br>
-
+Homepage:<br>
+![Homepage](readme-images/wire-homepage.png)<br>
+All Furnitures:<br>
+![All Furnitures](readme-images/wire-all-furnitures.png)<br>
+Furniture:<br>
+![Furniture](readme-images/wire-furniture.png)<br>
+Profile:<br>
+![Profile](readme-images/wire-account.png)<br>
+Dolly:<br>
+![Dolly](readme-images/wire-bag.png)<br>
+Support:<br>
+![Support](readme-images/wire-support.png)<br>
+Rating:<br>
+![Rating](readme-images/wire-rating.png)<br>
+Checkout:<br>
+![Checkout](readme-images/wire-checkout.png)<br>
+Management:<br>
+![Management](readme-images/wire-management.png)<br>
+Signup:<br>
+![Signup](readme-images/wire-signup.png)<br>
+Login:<br>
+![Login](readme-images/wire-login.png)<br>
 
 #### Database Design
 MongoDB Object format examples:

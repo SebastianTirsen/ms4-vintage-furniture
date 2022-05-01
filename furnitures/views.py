@@ -7,7 +7,7 @@ from django.views.generic import CreateView
 from django.urls import reverse_lazy
 
 from .models import Furniture, Category, Support
-from .forms import FurnitureForm
+from .forms import FurnitureForm, SupportForm
 
 
 # Create your views here.
@@ -77,6 +77,13 @@ class SupportCreateView(CreateView):
     fields = ('name', 'description')
     template_name = 'support.html'
     success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        form = SupportForm(self.request.POST, self.request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(self.request, 'Successfully sent your message. We will contact you shortly.')
+        return redirect(reverse('home'))
 
 
 @login_required
