@@ -37,7 +37,7 @@
                 <div id="top-nav" class="row bg-white pt-lg-2 d-none d-lg-flex">
                     <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center">
                         <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                            <img class="logo-transparent" src="{{ MEDIA_URL }}logo-transp.png" alt="logo" width="50px" height="50px">
+                            <img class="logo-transparent" src="{{ MEDIA_URL }}logo-transp.png" alt="logo" width="50" height="50">
                             <h2 class="logo-font logo-text text-black my-0"><strong>Vintage Furniture</strong></h2>
                         </a>
                     </div>
@@ -58,17 +58,17 @@
                     <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                         <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                             <li class="list-inline-item dropdown">
-                                <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="text-black nav-link" href="#" id="user-option" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <div class="text-center">
                                         <div><i class="fas fa-solid fa-user-astronaut fa-lg"></i></div>
                                         <p class="my-0">My Account</p>
                                     </div>
                                 </a>
-                                <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                                <div class="dropdown-menu border-0" aria-labelledby="user-option">
                                     <div class="text-center">
                                     {% if request.user.is_authenticated %}
                                         {% if request.user.is_superuser %}
-                                            <a href="{% url 'add_furniture' %}" class="dropdown-item">Product Management</a>
+                                            <a href="{% url 'add_furniture' %}" class="dropdown-item">Furniture Management</a>
                                         {% endif %}
                                         <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                                         <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
@@ -93,7 +93,7 @@
                                     </div>
                                 </a>
                             </li>
-                            <li id="base-support"class="list-inline-item">
+                            <li id="base-support" class="list-inline-item">
                                 <a class="text-black nav-link" href="{% url 'support' %}">
                                     <div class="text-center">
                                         <div><i class="fas fa-envelope fa-lg"></i></div>
@@ -121,7 +121,7 @@
                         {% include 'includes/main-nav.html' %}
                     </nav> 
                 </div>
-                <div id="" class="row">
+                <div class="row">
                     <div class="col bg-black">
                         <hr>            
                     </div>            
@@ -153,7 +153,7 @@
         {% endblock %}
 
         {% block postloadjs %}
-            <script type="text/javascript">
+            <script>
                 $('.toast').toast('show');
             </script>
         {% endblock %}

@@ -54,22 +54,23 @@ The goal of this Website is to provide consumers with the opportunity to make pu
 * Help the users find used furniture from famous designers and brands to buy at lower prices, all in one place.
 * Inform the users about the furnitures and lightings by providing a easy-to-use website with fast access to the most 
 important details about different furnitures and lightings.
-* Offers users an easy buying experience with fast and secure checkout with card-payment.
-* Provides users with the opportunity to save their information for an easy buying experience next time they shop at the site.
+* Offer users an easy buying experience with fast and secure checkout with card-payment.
+* Provide users with the opportunity to save their information for an easy buying experience next time they shop at the site.
 * Inform the users of what other customers think about the site and their pruchasing experience, by giving the users the possibility to rate the site.
 
 #### User stories
 * As a user, I want the main purpose of the site to be clear so that I immediately know what the site is intended for upon entering.
 * As a user, I want to easily navigate the site so that I can find content quickly with ease.
-* as a user I want to view the furniture and lighting in different categories to quickly find what I am looking to buy.
+* as a user I want to be able to view the furniture and lighting in different categories to quickly find what I am looking to buy.
 * as a user I want fast and easy access to information on specific furniture and lighting to facilitate my purchase decision.
 * As a user, I want to quickly search the entire store for a furniture or lighting to buy.
 * As a user, I want the website to be responsive so that I can clearly view the webpages from my mobile, tablet or desktop.
 * As a user, I want to be able to register to the website so that I can have an easy buying experience and save information on my orders.
 * As a user, I want a way to contact the site owner so that I can have any questions I may have in regards to the website answered.
 * As a user, I want to get information about other customers opinions about the store and to inform other customers of my opinion of the store.
+* As a user I want a fast, easy to use and secure checkout and payment.
 * as a store owner I want a way of communicating with clients that have questions about the site and their purchases.
-* as a store owner I want a way to manage products that are to be sold on the site. I want to be able to add new products, delete products and edit products that have information saved that for some reason needs to be changed.
+* as a store owner I want a way to manage furniture that are to be sold on the site. I want to be able to add new furniture, delete furniture and edit furniture that have information saved that for some reason needs to be changed.
 
 ### **The Scope Plane**
 
@@ -77,11 +78,11 @@ important details about different furnitures and lightings.
 * Responsive design.
 * Website title, a dominant logo and information on the site purpose.
 * A clear navigation Menu.
-* Sqlite and Postgres databases to store information.
-* CRUD Functionality so the store owner can manage the furnitures.
+* Postgres default and fallback Sqlite databases to store information.
+* CRUD Functionality so that the store owner can manage the furnitures.
 * Login functionality.
 * Logout functionality.
-* Profile Page for the users.
+* Profile Page for the users stored info and past orders.
 * All the furnitures and Lighting displayed on one page.
 * All the details on the individual furnitures and Lighting displayed on separate pages.
 * Display of all the users posted ratings and reviews.
@@ -103,7 +104,7 @@ Implementation:
 A site logo will be displayed on the main navigation menu. This should be 
 displayed on all webpages.
 
-The Website title will be displayed on the home page and a detailed description of the 
+The Website title will be displayed on the home page and a description of the 
 site will be displayed on the Home page so that is evident of the websites
 purpose as soon as the user visits the site.
 
@@ -116,10 +117,10 @@ Acceptance Criteria:
 * the navigations are made respponsive to fit all types of devices.
 
 Implementation:
-
-A two part navigation menu will be displayed on all webpages. This will redirect users to the approriate page when 
-clicked. On smaller devices, the menu will collapse into a hamburger menu to make efficient use to screen 
-space. When clicked, the menu will expand downward on the screen displaying all navigation items.
+A two part navigation menu will be displayed on all webpages. A top navigation concerning the users and 
+their purchases and a main navigation concerning th furnitures and lightings. This will redirect users to 
+the approriate page when clicked. On smaller devices, the menu will collapse into a hamburger menu to make efficient
+use to screen space. When clicked, the menu will expand downward on the screen displaying all navigation items.
 
 The following navigation items will be implemented:
 
@@ -156,7 +157,7 @@ visible only to logged in users:
 * Edit and Delete-buttons on ratings page.
 
 visible only to logged in superusers/store owners:
-* My account - Product Management
+* My account - Furniture Management
 * Edit and delete links on the all furniture page
 and on furniture details page.
 
@@ -168,9 +169,9 @@ Acceptance Criteria:
 * The user needs to be able to view only categories of their choice.
 
 Implementation:
-Under the "All furnitures" button in the navigation, the options are avilable to sort the furnitures by price,
+Under the "All furnitures" button in the navigation, the options are available to sort the furnitures by price,
 brand and category. Under the buttons "Furniture", "Lighting" and "Specials" there are different categories to choose.
-When the user selects a category, only the furnitures in that category becomes vixible to the user.
+When the user selects a category, only the furnitures in that category becomes visible to the user.
 
 User Story:
 > as a user I want fast and easy access to information on specific furniture and lighting to facilitate my purcchase decision.
@@ -180,8 +181,8 @@ Acceptance Criteria:
 * The user should be able to exit the individual furnitures just by clicking once and view all the furnitures again.
 
 Implementation:
-If the user is interested in more information about a certain piece of furniture, they can just click on the image
-to get to a page showing the specific details of the selected item. When the user is satisfied, they can click a button
+If the user is interested in more information about a certain piece of furniture, they click on the image
+to get to a page showing the specific details of the selected item. When the user is satisfied, they click the button
 named "Keep shopping" to view all the furnitures again.
 
 User Story:
@@ -191,7 +192,7 @@ Acceptance Criteria:
 * A searchfield should be visible to the user and make it possible to search th whole site for an item by typing in a word and clicking search-button.
 
 Implementation:
-A searchfield are placed at the center of the navigation and is visible on all pages on the site. The user can search on every page by typing
+A searchfield is placed at the center of the navigation and is visible on all pages on the site. The user can search on every page by typing
 in a word and hitting the search-button. 
 
 User Story:
@@ -202,7 +203,6 @@ Acceptance Criteria:
 * Content should be responsive and display clearly on all devices.
 
 Implementation:
-
 Bootstrap and templates will be used for website layout with suitable column sizes and containers to ensure
 that all content is displayed clearly on all devices. Images will be responsive and 
 scale to fit screen sizes with no stretch or distortion to ensure clear images are displayed to the user.
@@ -215,24 +215,38 @@ Acceptance Criteria:
 * Register - Functionality to register a new user profile to be added.
 * Log in/out - Login and Logout functionality to be added.
 * Profile page - User must be able to display their basic details and previous orders.
+* Profile page - User must be able to edit their basic details.
 * User must have the ability to post, update and delete ratings made by themselves.
 * Only the store owner should have the ability to update or delete the furnitures.
 
 Implementation:
-
 A Register page will be implemented that allows users to register for an account on the website. The username
-and the password along with email for the users account will be stored in Django collection 
-called users. In order to be able to add a new furniture, modify or delete an existing furniture, a user will have to be a store owner
-and registered as a superuser. Only the store owner will have the ability to update or delete the furnitures for sale, this is to prevent 
-unwanted modification or deletion of items for sale by the common user. A message will be shown to the user to alert them whether the 
-update or delete on the furniture was successful. A regular user can store, update and delete their own ratings of the site on the ratings page.
+and the password along with email for the users account will be stored in Postgress collection called users.
 
-A Log In page will be implemented to allow registered users the ability to login in to their account. 
+A Log In page will be implemented to allow registered users the ability to login in to their account. Once a user has successfully logged in, 
+they will be redirected to the Homepage. A message will be displayed to inform the user that they have successfully logedd in. In the navigation 
+under "My account" the logged in user can find the Profile page "My profile". The users Profile page will display the basic details, along with 
+the users previous orders. The user will be able to click on the individual previous orders to view details of the order. The basic information 
+about the user can also be modified by the logged in user. The purpose is to make it possible for the user to change address and shipping information.
 
-Once a user has successfully logged in, they will be redirected to the Homepage. A message will be displayed to inform the user that they have successfully logedd in. The users Profile page will display the basic details, along with the users previous orders. The user will be able to click on the individual previous orders to view details of the order.
+A Log Out link will be displayed to users who are logged in. When clicked this will redirect the user to a page where they are asked if they are sure
+that they want to log out. Under the question there are two buttons, one for cancelling the logout and one for signing the user out. When the user chooses to log out the user are redirected to the Home page. A message will be displayed to inform the user that they have successfully logedd out. If they cancel their log out, they are redirected to the homepage.
 
-A Log Out link will be displayed to users who are logged in. When clicked this will log the user out of the 
-website and redirect them to the Home page. A message will be displayed to inform the user that they have successfully logedd out.
+User Story:
+> as a store owner I want to manage furnitures that are to be sold on the site.
+
+Acceptance Criteria:
+* Add new furniture. 
+* Delete furniture.
+* Edit furniture.
+
+Implementation:
+In order to be able to add a new furniture, modify or delete an existing furniture, a user will have to be a store owner
+and registered as a superuser. The management of furnitures to be sold are maintained on the "Furniture management" page
+found in the dropdown "My account" in the navigation. Only the store owner will have the ability to update or delete the furnitures 
+for sale, this is to prevent unwanted modification or deletion of items for sale by the common user. The store owner are able to edit 
+all the information about the furnitures on the management page. A message will be shown tothe superuser to alert them whether the 
+update or delete on the furniture was successful. 
 
 User Story:
 > As a user, I want a way to contact the site owner so that I can have any questions I may have in regards to the website answered.
@@ -242,27 +256,40 @@ Acceptance Criteria:
 
 Implementation:
 A support page will be added that contains a template with text inputs, this will allow users to contact the site 
-owner. The information is stored in the Django collection called support. A  message is displayed to alert 
+owner. The information is stored in the Postgress collection called supports. A  message is displayed to alert 
 the user that the support message was sent successfully.
 
 User Story:
-> * As a user, I want read other customers opinions about the store and to inform other customers of my opinion of the store.
+> As a user, I want read other customers opinions about the store and to inform other customers of my opinion of the store.
 
 Acceptance Criteria:
-* All posted ratings must be displayed to users.
+* All posted ratings must be displayed to all users.
 * Users should be able to read all the reviews and ratings.
 * Users that are logged in should be able to give a rating and write a review and save it for others to read.
 * Users that are logged in should be able to edit their own posted ratings.
 * Users that are logged in should be able to delete their own posted ratings.
 
 Implementation:
-
 A "Rate Us" page will be acessible on the navigation menu visible to all users. The page will display all the ratings
 and reviews made by all users. The ratings page will display a button for adding a new rating and review text.
 All the ratings made by all users will be displayed on the page. Two buttons will be visible to the side of the ratings 
 made py the logged in user, for deleting and editing their own rating. The ratings and reviews information will be stored
-in a Django database collection called ratings.
+in a Postgress database collection called ratings.
 
+User Story:
+> As a user I want a fast, easy to use and secure checkout and payment.
+
+Acceptance Criteria:
+* a summary of all the items i want to buy.
+* A easy to use checkout process.
+* A secure confirmation that the order has been registered.
+
+Implementation:
+The shopping dolly page gives the users an easy way to get a summary of all the furniture that they want to order.
+The checokut process are easy and made secure by using Stripe payments by card nymber input.
+When the user clicks the button to complete the order a message shows to confirm that the order was successfully processed.
+The order is assigned a unique order number that is visible in the confiormation message. A confirmation email will be sent 
+to the users registered email. A confirmation page is also shown with all the information regarding the order displayed.
 
 ### **The Skeleton Plane**
 #### Wireframes
@@ -291,7 +318,7 @@ Login:<br>
 ![Login](readme-images/wire-login.png)<br>
 
 #### Database Design
-MongoDB Object format examples:
+Postgress Databas structure:
 
 **Collection: contacts**<br>
 {<br>

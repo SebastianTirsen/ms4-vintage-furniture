@@ -60,7 +60,7 @@
                                                 <li class="small">
                                                     {% if item.product.has_sizes %}
                                                         Size {{ item.product.size|upper }}
-                                                    {% endif %}{{ item.product.name }} {{ item.quantity }}
+                                                    {% endif %}{{ item.furniture.name }} {{ item.quantity }}
                                                 </li>
                                             {% endfor %}
                                         </ul>
@@ -73,9 +73,10 @@
                 </div>
             </div>
         </div>
+    </div>
 {% endblock %}
 
 {% block postloadjs %}
     {{ block.super }}
-    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
+    <script src="{% static 'profiles/js/countryfield.js' %}"></script>
 {% endblock %}

@@ -35,7 +35,7 @@
         <div class="dropdown-menu border-0" aria-labelledby="user-options">
             {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
-            <a href="{% url 'add_furniture' %}" class="dropdown-item">Product Management</a>
+            <a href="{% url 'add_furniture' %}" class="dropdown-item">Furniture Management</a>
             {% endif %}
             <a href="" class="dropdown-item">My Profile</a>
             <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
@@ -61,7 +61,7 @@
         </a>
     </li>
 
-    <li id="base-support" class="list-inline-item d-lg-none">
+    <li class="list-inline-item d-lg-none">
         <a class="text-black nav-link" href="">
             <div class="text-center">
                 <div><i class="fas fa-envelope fa-lg"></i></div>
@@ -69,7 +69,7 @@
             </div>
         </a>
     </li>
-    <li id="base-support" class="list-inline-item d-lg-none">
+    <li class="list-inline-item d-lg-none">
         <a class="nav-link text-black" href="{% url 'rating' %}">
             <div class="text-center">
                <div><i class="fas fa-lg fa-regular fa-star"></i></div>

@@ -88,7 +88,7 @@ class SupportCreateView(CreateView):
 
 @login_required
 def add_furniture(request):
-    """ Add a product to the store """
+    """ Add a furniture to the store """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -114,7 +114,7 @@ def add_furniture(request):
 
 @login_required
 def edit_furniture(request, furniture_id):
-    """ Edit a product in the store """
+    """ Edit a furniture in the store """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))

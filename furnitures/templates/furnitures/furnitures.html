@@ -26,7 +26,7 @@
     </div>
     <div class="row">
         <div class="furniture-container col-10 offset-1">
-            <div class="row mt-1 mb-2"></div>
+            <div class="row mt-1 mb-2">
                 <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center center-stage">
                     <div class="sort-select-wrapper w-50">
                         <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
@@ -89,7 +89,7 @@
                                                     <a href="{% url 'edit_furniture' furniture.id %}">Edit</a> | 
                                                     <a class="text-danger" href="{% url 'delete_furniture' furniture.id %}">Delete</a>
                                                 </small>
-                                            {% endif %}
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
@@ -109,13 +109,13 @@
 
 {% block postloadjs %}
     {{ block.super }}
-    <script type="text/javascript">
+    <script>
 		$('.btt-link').click(function(e) {
 			window.scrollTo(0,0)
 		})
 	</script>
 
-    <script type="text/javascript">
+    <script>
         $('#sort-selector').change(function() {
             var selector = $(this)
             var currentUrl = new URL(window.location);
