@@ -37,7 +37,7 @@
             {% if request.user.is_superuser %}
             <a href="{% url 'add_furniture' %}" class="dropdown-item">Furniture Management</a>
             {% endif %}
-            <a href="" class="dropdown-item">My Profile</a>
+            <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
             <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
             {% else %}
             <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
@@ -62,7 +62,7 @@
     </li>
 
     <li class="list-inline-item d-lg-none">
-        <a class="text-black nav-link" href="">
+        <a class="text-black nav-link" href="{% url 'support' %}">
             <div class="text-center">
                 <div><i class="fas fa-envelope fa-lg"></i></div>
                 <p class="my-0">Support</p>
