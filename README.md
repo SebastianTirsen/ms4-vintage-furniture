@@ -46,40 +46,47 @@ The Vintage Furniture online store is the best place to shop for the furniture a
 The interior design industry has boomed in the latest years and home-styling is now a household concept. 
 The spending on furniture and lighting with high quality and design has increased exponentially. Vintage 
 Furniture is the answer to this demand, but offers furniture that are slightly used and at significantly lower
-prices to the cost conscious connoisseur.
+prices to the cost conscious interior design connoisseur.
 
-The goal of this Website is to provide people with an interest in buying furniture and lighting made by famous designers and brands. The Vintage Furniture Online store offers users a simple and easy to use website that allows them to find a piece of furniture or lgihting to buy at a significantly lower price than if purchased new in some other store.
+The goal of this Website is to provide consumers with the opportunity to make purchases of designer furniture and lightning at lower cost. The Vintage Furniture Online store offers second hand, high quality furniture made by famous designers and brands. The users are provided with a simple and easy to use website that allows them to find a piece of furniture or lighting to buy at a significantly lower price than if purchased new in some other store.
 
 #### Site Goals
 * Help the users find used furniture from famous designers and brands to buy at lower prices, all in one place.
 * Inform the users about the furnitures and lightings by providing a easy-to-use website with fast access to the most 
 important details about different furnitures and lightings.
 * Offers users an easy buying experience with fast and secure checkout with card-payment.
+* Provides users with the opportunity to save their information for an easy buying experience next time they shop at the site.
+* Inform the users of what other customers think about the site and their pruchasing experience, by giving the users the possibility to rate the site.
 
 #### User stories
-* As a user, I want the main purpose of the site to be clear so that I immediately know what the site is 
-intended for upon entering.
+* As a user, I want the main purpose of the site to be clear so that I immediately know what the site is intended for upon entering.
 * As a user, I want to easily navigate the site so that I can find content quickly with ease.
-* As a user, I want the website to be responsive so that I can clearly view the webpages from my mobile, 
-tablet or desktop.
-* As a user, I want to be able to register to the website so that I can create and manage my watched shows.
-* As a user, I want a way to contact the site owner so that I can have any questions I may have in 
-regards to the website answered.
+* as a user I want to view the furniture and lighting in different categories to quickly find what I am looking to buy.
+* as a user I want fast and easy access to information on specific furniture and lighting to facilitate my purchase decision.
+* As a user, I want to quickly search the entire store for a furniture or lighting to buy.
+* As a user, I want the website to be responsive so that I can clearly view the webpages from my mobile, tablet or desktop.
+* As a user, I want to be able to register to the website so that I can have an easy buying experience and save information on my orders.
+* As a user, I want a way to contact the site owner so that I can have any questions I may have in regards to the website answered.
+* As a user, I want to get information about other customers opinions about the store and to inform other customers of my opinion of the store.
+* as a store owner I want a way of communicating with clients that have questions about the site and their purchases.
+* as a store owner I want a way to manage products that are to be sold on the site. I want to be able to add new products, delete products and edit products that have information saved that for some reason needs to be changed.
 
 ### **The Scope Plane**
 
 **Features planned:**
 * Responsive design.
-* Website title and information on the site purpose.
+* Website title, a dominant logo and information on the site purpose.
 * A clear navigation Menu.
-* MongoDB databases to store information about the TV-shows, user login/profile information and information stored from contact form.
-* CRUD Functionality
+* Sqlite and Postgres databases to store information.
+* CRUD Functionality so the store owner can manage the furnitures.
 * Login functionality.
 * Logout functionality.
-* Profile Page
-* All the TV-shows displayed on one page for the logged in users.
-* The current users own posted shows on the profile page.
-* Registered user creation and management of their own posted shows.
+* Profile Page for the users.
+* All the furnitures and Lighting displayed on one page.
+* All the details on the individual furnitures and Lighting displayed on separate pages.
+* Display of all the users posted ratings and reviews.
+* Registered user creation and management of their own ratings.
+* Fast and secure checkout and payment with Stripe.
 
 ### **The Structure Plane**
 User Story:
@@ -89,6 +96,7 @@ intended for upon entering.
 Acceptance Criteria:
 * Site Logo to be displayed on the main navigation bar on all pages and across all devices.
 * Home Page to display Website Title and information to the user on the purpose of the site.
+* Pictures and text displayed of new furnitures that have come in to the store.
 
 Implementation:
 
@@ -105,33 +113,93 @@ User Story:
 Acceptance Criteria:
 * Navigation menu to be displayed on all pages.
 * All navigation links redirect to the correct pages.
+* the navigations are made respponsive to fit all types of devices.
 
 Implementation:
 
-A navigation menu will be displayed on all webpages. This will redirect users to the approriate page when 
+A two part navigation menu will be displayed on all webpages. This will redirect users to the approriate page when 
 clicked. On smaller devices, the menu will collapse into a hamburger menu to make efficient use to screen 
 space. When clicked, the menu will expand downward on the screen displaying all navigation items.
 
 The following navigation items will be implemented:
 
 visible to all users:
-* Home - index.html
-* Log In - login.html
-* Register - register.html
-* Contact - contact.html
+* Search-field
+Top navigation:
+* My account - Register
+             - Log In
+* Shopping Dolly
+* Support
+* Rate Us
+
+Main navigation:
+* All Furniture - By price
+                - By Brand
+                - By Category
+* Furniture - Tables
+            - Chairs
+            - Storage
+            - Shelves
+            - all furniture
+* Lighting  - Ceiling & Wall lights
+            - Desk lamps
+            - Floor lamps
+            - all lighting
+* Special offers - New arrivals
+                 - Deals
+                 - Clearance
+                 - all specials
 
 visible only to logged in users:
-* Profile - profile.html
-* Events - events.html
-* Create Event - create-event.html
-* Log Out - redirects to Log In page
+* My account - profile
+             - Log out
+* Edit and Delete-buttons on ratings page.
+
+visible only to logged in superusers/store owners:
+* My account - Product Management
+* Edit and delete links on the all furniture page
+and on furniture details page.
+
+User Story:
+> as a user I want to view the furniture and lighting in different categories to quickly find what I am looking to buy.
+
+Acceptance Criteria:
+* The user should be able to sort the furniture and lightings by different variables such as price, brand and category. 
+* The user needs to be able to view only categories of their choice.
+
+Implementation:
+Under the "All furnitures" button in the navigation, the options are avilable to sort the furnitures by price,
+brand and category. Under the buttons "Furniture", "Lighting" and "Specials" there are different categories to choose.
+When the user selects a category, only the furnitures in that category becomes vixible to the user.
+
+User Story:
+> as a user I want fast and easy access to information on specific furniture and lighting to facilitate my purcchase decision.
+
+Acceptance Criteria:
+* The user should be able to have direct access to the details of the individual furnitures just by clicking once.
+* The user should be able to exit the individual furnitures just by clicking once and view all the furnitures again.
+
+Implementation:
+If the user is interested in more information about a certain piece of furniture, they can just click on the image
+to get to a page showing the specific details of the selected item. When the user is satisfied, they can click a button
+named "Keep shopping" to view all the furnitures again.
+
+User Story:
+> As a user, I want to quickly search the entire store for a furniture or lighting to buy.
+
+Acceptance Criteria:
+* A searchfield should be visible to the user and make it possible to search th whole site for an item by typing in a word and clicking search-button.
+
+Implementation:
+A searchfield are placed at the center of the navigation and is visible on all pages on the site. The user can search on every page by typing
+in a word and hitting the search-button. 
 
 User Story:
 > As a user, I want the website to be responsive so that I can clearly view the webpages from my mobile, 
 tablet or desktop.
 
 Acceptance Criteria:
-* Content should be responsive and display clearly on all devices with no horizontal scroll.
+* Content should be responsive and display clearly on all devices.
 
 Implementation:
 
@@ -140,80 +208,61 @@ that all content is displayed clearly on all devices. Images will be responsive 
 scale to fit screen sizes with no stretch or distortion to ensure clear images are displayed to the user.
 
 User Story:
-> As a user, I want to be able to register to the website so that I can create and manage my own shows.
+> As a user, I want to be able to register to the website so that I can have easy access to my buyer
+information and previous orders.
 
 Acceptance Criteria:
 * Register - Functionality to register a new user profile to be added.
 * Log in/out - Login and Logout functionality to be added.
-* Profile page - User must be able to display their basic details and shows they have posted.
-* User must have the ability to post, update and delete TV-shows of their choice.
-* Only the creator of a show should have the ability to update or delete the show.
+* Profile page - User must be able to display their basic details and previous orders.
+* User must have the ability to post, update and delete ratings made by themselves.
+* Only the store owner should have the ability to update or delete the furnitures.
 
 Implementation:
 
 A Register page will be implemented that allows users to register for an account on the website. The username
-and the hashed password along with email and the users name for the users account will be stored in a MongoDB database collection 
-called users. In order to be able to post a new show, modify or delete an existing show, a user will have to register and login 
-to the website. Only the creator of the show will have the ability to update or delete the shows the user has posted, this is to prevent 
-unwanted modification or deletion of shows posted by other users. A modal will appear when pressing the delete button, to alert the user
-and ask them if they are really sure they want to delete the show. A flash message will be shown to the user to alert them whether the 
-update or delete on their event was successful.
+and the password along with email for the users account will be stored in Django collection 
+called users. In order to be able to add a new furniture, modify or delete an existing furniture, a user will have to be a store owner
+and registered as a superuser. Only the store owner will have the ability to update or delete the furnitures for sale, this is to prevent 
+unwanted modification or deletion of items for sale by the common user. A message will be shown to the user to alert them whether the 
+update or delete on the furniture was successful. A regular user can store, update and delete their own ratings of the site on the ratings page.
 
 A Log In page will be implemented to allow registered users the ability to login in to their account. 
 
-Once a user has successfully logged in, they will be redirected to their profile page. The users basic 
-details will be displayed on their profile, along with the shows they have posted. The user will be able 
-to update or delete their posted shows from the profile page. This page will only be available to logged in users.
+Once a user has successfully logged in, they will be redirected to the Homepage. A message will be displayed to inform the user that they have successfully logedd in. The users Profile page will display the basic details, along with the users previous orders. The user will be able to click on the individual previous orders to view details of the order.
 
-A Log Out button will be displayed to users who are logged in. When clicked this will log the user out of the 
-website and redirect them to the Log In page.
-
-A post "New Show" page will be implemented that will be acessible and visible on the navigation menu to logged 
-in users. The user will be able to post a new show from this page. The shows information will be stored in 
-a MongoDB database collection called series.
+A Log Out link will be displayed to users who are logged in. When clicked this will log the user out of the 
+website and redirect them to the Home page. A message will be displayed to inform the user that they have successfully logedd out.
 
 User Story:
-> As a user, I want to be able to have access to all the posted shows by all users, so that I can find an interesting show and read other users reviews and rating of
-that show. I also want to be able to help my fellow users by giving my own ratings and reviews of the shows that I have watched.
+> As a user, I want a way to contact the site owner so that I can have any questions I may have in regards to the website answered.
 
 Acceptance Criteria:
-* All posted shows must be displayed to users that are logged in.
-* Users that are logged in should be able to read all the information about each show respectively.
-* Users that are logged in should be able to read all the reviews and ratings of each show respectively.
-* Users that are logged in should be able to make their own rating and write own reviews about the shows they have watched.
+* Support page should be added with a contact form.
+
+Implementation:
+A support page will be added that contains a template with text inputs, this will allow users to contact the site 
+owner. The information is stored in the Django collection called support. A  message is displayed to alert 
+the user that the support message was sent successfully.
+
+User Story:
+> * As a user, I want read other customers opinions about the store and to inform other customers of my opinion of the store.
+
+Acceptance Criteria:
+* All posted ratings must be displayed to users.
+* Users should be able to read all the reviews and ratings.
+* Users that are logged in should be able to give a rating and write a review and save it for others to read.
+* Users that are logged in should be able to edit their own posted ratings.
+* Users that are logged in should be able to delete their own posted ratings.
 
 Implementation:
 
-An "All shows" page will be acessible on the navigation menu visible only to logged in users. The page will display
-all the shows posted by all registered users. In order to make use of space, each shows reviews and ratings are displayed 
-in an accordion setup and can be expanded to view. A rating button will be visible on each shows card. The button will activate
-a modal where the user can choose between 1 and 5 stars by clicking the star icons, whereupon they are colored accordingly
-to display the users choice. The user can also write a review in a textfield below the rating. The user should then be able 
-to post the rating and review so that it is visible on the respective show.
+A "Rate Us" page will be acessible on the navigation menu visible to all users. The page will display all the ratings
+and reviews made by all users. The ratings page will display a button for adding a new rating and review text.
+All the ratings made by all users will be displayed on the page. Two buttons will be visible to the side of the ratings 
+made py the logged in user, for deleting and editing their own rating. The ratings and reviews information will be stored
+in a Django database collection called ratings.
 
-
-User Story:
-> As a user, I want a way to contact the site owner so that I can have any questions I may have in 
-regards to the website answered and receive feedback to alert on status of form submission.
-
-Acceptance Criteria:
-* Contact page should be added with a contact form. This form should only submit with valid data input.
-* Contact form should not submit with invalid data input.
-* User should be alerted of success/failure status of form submission.
-
-Implementation:
-
-A contact page will be added that contains a Bootstrap template form, this will allow users to contact the site 
-owner. The information is stored in the MongoDb Collection called contact. A flash message is displayed to alert 
-the user that the contact form submitted successfully.
-
-Validation will be performed on the form to ensure valid data input. The form will not submit if any 
-field is blank.
-
-Form Fields:
-* Name - Type: Text, required.
-* Email - Type: Email, required.
-* Message - Type: TextArea, required.
 
 ### **The Skeleton Plane**
 #### Wireframes
@@ -366,15 +415,27 @@ Each show having its own rank based on the average rating of the users, would be
 * [Python](https://www.python.org/)
     * This projects core was created using Python, the back-end logic and the means to run/view the Website.
     * Python Modules used these dependencies listed in the requirements.txt file:
-        * click==8.0.3
-        * dnspython==2.1.0
-        * Flask==2.0.2
-        * Flask-PyMongo==2.3.0
-        * itsdangerous==2.0.1
-        * Jinja2==3.0.3
-        * MarkupSafe==2.0.1
-        * pymongo==4.0.1
-        * Werkzeug==2.0.2
+        * asgiref==3.5.0
+        * boto3==1.22.4
+        * botocore==1.25.4
+        * dj-database-url==0.5.0
+        * Django==3.2
+        * django-allauth==0.41.0
+        * django-countries==7.2.1
+        * django-crispy-forms==1.14.0
+        * django-storages==1.12.3
+        * gunicorn==20.1.0
+        * jmespath==1.0.0
+        * oauthlib==3.2.0
+        * Pillow==9.1.0
+        * psycopg2-binary==2.9.3
+        * python3-openid==3.2.0
+        * pytz==2022.1
+        * requests-oauthlib==1.3.1
+        * s3transfer==0.5.2
+        * sqlparse==0.4.2
+        * stripe==2.74.0
+
 
 * [MongoDB](https://www.mongodb.com/1)
     * MongoDB was used to create the document based databases(collections) used as data storage for this project.
@@ -414,7 +475,7 @@ All pages were tested to ensure responsiveness on screen sizes from 390px and up
 
 Steps to test:
 
-1. Open browser and navigate to [ISDb](https://ms3-seriesdb-project.herokuapp.com/)
+1. Open browser and navigate to [Vintage Furniture](https://ms4-vintage-furniture.herokuapp.com/)
 2. Open the developer tools (right click and inspect)
 3. Set to responsive and decrease width to 390px
 4. Set the zoom to 50%
@@ -428,7 +489,7 @@ No elements overlap.
 
 Actual:
 
-Website behaved as expected down to width 390px.
+Website behaved as expected down to width 390px. However some minimal horisontal scroll seems to be present.
 
 Website was also opened on the following devices and no responsive issues were seen:
 
@@ -457,13 +518,13 @@ The site performance was tested using Lighthouse in the developer tool in Chrome
 
 The performance for mobile use was scored as: 
 
-Performance 74 Accessibility 94 Best Practices 87 SEO 92
+Performance 67 Accessibility 86 Best Practices 92 SEO 83
 
 The performance for desktop use was scored as:
 
-Performance 95 Accessibility 92 Best Practices 87 SEO 90
+Performance 91 Accessibility 79 Best Practices 92 SEO 80
 
-Most important issues to improve Performance was to remove resources that blocks rendering.
+Most important issues to improve Performance was to send pictures in more modern formats than jpeg or png.
 
 
 **Navigation Links**
@@ -492,62 +553,63 @@ _Scenario One - Correct Inputs_
 
 Steps to test:
 
-1. Navigate to [ISDb](https://ms3-seriesdb-project.herokuapp.com/login)
+1. Navigate to [Vintage Furniture](https://ms4-vintage-furniture.herokuapp.com/accounts/login/)
 2. Scroll down to the form and input the following data:
-   - Username: Daisy
-   - Password: Password
+   - Username: Sebbe
+   - Password: Gabbeluba
 3. Click Log In
-4. User should be redirected to the logged in users profile.html page.
+4. User should be redirected to the Homepage.
 
 Expected:
 
-Form submits with no warnings or errors and user is redirected to the logged in users profile.html page.
+Form submits with no warnings or errors and user is redirected to the logged in users profile.html page. Successmessage is displayed
+that user successfully signed in as <username>.
 
 Actual:
 
-Website behaved as expected with no errors or warnings and redirected to profile.html.
+Website behaved as expected with no errors or warnings and redirected to Homepage.
 
 _Scenario Two - Correct Inputs_
 
 Steps to test:
 
-1. Navigate to [ISDb](https://ms3-seriesdb-project.herokuapp.com/profile/(your username))
-2. Scroll down to the form and select a posted show a show:
-   - Press Update button.
-   - update_show.html is displayed and prefilled.
+1. Navigate to [Vintage Furniture](https://ms4-vintage-furniture.herokuapp.com/profile/)
+2. Scroll down the form.
 3. Change info in one or more input fields.
 4. Press update button.
-5. User redirects to update_show.html and flash message informs about Update Successful.
-6. Navigate back to profile page and check if the info is updated.
+5. User redirects to Profile page and success message informs about Profile Updated Successfully.
 
 Expected:
 
-Form submits with no warnings or errors and user is redirected to the update_show.html page and flash message informs user about success of update.
+Form submits with no warnings or errors and user is redirected to the Profile page and success message informs user about success of update.
 
 Actual:
 
-Website behaved as expected with no errors or warnings and redirected to update_show.html.
+Website behaved as expected with no errors or warnings and redirected to Profile page.
 
 _Scenario Three - Correct Inputs_
 
 Steps to test:
 
-1. Navigate to [ISDb](https://ms3-seriesdb-project.herokuapp.com/profile/(your username))
-2. Scroll down to the form and select a posted show a show:
-   - Press Delete button.
-   - modal is displayed asking for confirmation of delete.
-3. Press Delete button.
-4. User redirects to profile.html and flash message informs about Delete Successful.
-5. Navigate back to profile page and check if the info is deleted.
+1. Navigate to [Vintage Funriture](https://ms4-vintage-furniture.herokuapp.com/rating)
+2. Press Add Rating button.
+4. Modal appears asking user to type name and message.
+5. Type in name and message in designated fields.
+6. Press "Add" button.
+7. User redirects to Ratings page and the new posted rating is posted and visible.
+8. Press "Delete" button beside the new post.
+9. Modals becomes visible asking if you are sure about deleting the rating.
+10. Press "Delete" button in modal.
+11. User is redirected back to ratings page and the deleted rating is no longer visible.
 
 Expected:
 
-Show is deleted with no warnings or errors and user is redirected to the profile.html page and flash message informs user about success of 
+Show is deleted with no warnings or errors and user is redirected to the ratings page and flash message informs user about success of 
 deletion.
 
 Actual:
 
-Website behaved as expected with no errors or warnings and redirected to profile.html.
+Website behaved as expected with no errors or warnings and redirected to ratings page.
 
 
 _Scenario Four - Correct Inputs_
@@ -618,13 +680,15 @@ Website behaved as expected with no errors or warnings and redirected to post_sh
 
 **Footer Social Media Icons / Links**
 
-Testing was performed on the Font Awesome Social Media icons in the footer to ensure that each one opened in a new tab and that each one had a hover affect of the orange branding color.
+Testing was performed on the Font Awesome Social Media icons in the footer to ensure that each one opened in a new tab.
 
-Each item opened a new tab when clicked as expected and correct hover color was present.
+Each item opened a new tab when clicked as expected.
 
-**Footer Contact Information**
+**Footer Quick Links**
 
-Testing was performed on the phone number in the contact information section of the footer to ensure behaviour was as expected.
+Testing was performed on the links in the Quick Links section of the footer to ensure behaviour was as expected.
+
+Each link redirected to the correct page when clicked as expected.
 
 
 ### Validator Testing 
@@ -752,41 +816,7 @@ Theme Template:
 
 ### Code
 
-Code Istitute, The Flask Framework, Walk-through, Thorin and his Dwarves.
-
-Code Istitute, MongoDb Mini-project, Task-Manager.
-
-Boilerplate flask from:
-Github: (https://realpython/flask-boilerplate)
-
-
-Footer:
-(https://mdbootstrap.com/docs/standard/navigation/footer/)
-
-
-Register & login form:
-(https://larainfo.com/blogs/bootstrap-5-registration-form-example)
-
-
-post_show form:
-(https://mdbootstrap.com/docs/standard/forms/overview/)
-
-
-Show Cards:
-(https://codepen.io/anilmauganj/pen/rNyVLov)
-
-Contact form:
-(https://startbootstrap.com/guides/bootstrap-form-setup-guide)
-
-Profile:
-(https://bbbootstrap.com/snippets/profile-edit-form-button-40037114)
-
-
-Star rating:
-https://codepen.io/hesguru/pen/BaybqXv
-
-
-JavaScript Validation function in scripts.js was code from course material for Task Manager App on the LMS. 
+Code Istitute, Walk-through, "Boutique Ado".
 
 ### **Acknowledgements**
 
