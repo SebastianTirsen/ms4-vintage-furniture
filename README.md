@@ -319,83 +319,121 @@ Login:<br>
 
 #### Database Design
 Postgress Databas structure:
-
-**Collection: contacts**<br>
+**ACCOUNTS**
+**Collection: Email addresses**<br>
 {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;_id: unique-value,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;name: "Sebastian Tirsén"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;email: "sebastian.tirsen@gmail.com"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;message: "I really like your site man!"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;user: Sebbe,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;e-mail address: sebastian.tirsen@gmail.com,<br>
 }
 
-**Collection: ratings**<br>
-{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;_id: unique-value,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;rating: "5",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;review: "Best show of all times!",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;created_by: "sebbe",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;show: "Game of Thrones",<br>
-}
-
-**Collection: series**<br>
-{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;_id: unique-value,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;country: "France",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;director: "James Cooper",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;genre: "Comedy",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;parental_guidance: "+18 years",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;picture: "picture link",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;seasons: "12",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;starring: "Nils Lofgren",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;synopsis: "When chemistry teacher Walter White is diagnosed with...",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;title: "Smelling Bad",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;year: "2011",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;posted_by: "sebbe",<br>
-}
-
+**AUTHENTICATION AND AUTHORIZATION**
 **Collection: users**<br>
 {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;_id: unique-value,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;name: "Sebastian",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;email: "sebastian.tirsen@gmail.com",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;username: "sebbe",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;password: hashed-value,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;username: Sebbe,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;First name: "Sebastian"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Last name: "Tirsen"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;email adress: "sebastian.tirsen@gmail.com"<br>
+}
+
+**CHECKOUT**
+**Collection: Orders**<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Order number: Unique id number,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;User profile: name of profile that sent order,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Date: date and time order was recieved,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Full name: the name user registered with the order,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Email: email of profile that sent order,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Phone number: phone number of profile that sent order,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Country: country of profile that sent order,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Postcode: postcode of profile that sent order,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Town or city: Town or city of profile that sent order,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Street address1: street address of profile that sent order,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Street address2: second street of profile that sent order,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;County: County of profile that sent order,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Delivery cost: 0.00,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Order total: 7000.00,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Grand total: 7000.00,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Origina dolly: stores the items put on dolly,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Stripe_pid: unique id for payment,<br>
+}
+
+**FURNITURES**
+**Collection: Categories**<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;friendly name: Floor Lamps,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name: floor_lamps,<br>
+}
+
+**Collection: Furnitures**<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;category: Floor Lamps,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Brand: Louis Poulsen,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name: Panthella floor lamp,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Description: Verner Panton's floor lamp Panthella has achieved almost...,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;price: 4000.00,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dimensions: 50*50*131,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;material: White opal acrylic,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;production: 2007,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;condition: Good,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;image url: ,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;image: Panthella.jpeg,<br>
+}
+
+**Collection: Supports**<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name: name written by user,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;description: support question written by user,<br>
+}
+
+**PROFILES**
+**Collection: User profiles**<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;User: registered users username,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Default phone number: users Default phone number,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Default street address1: users default street address1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Default street address2: users default second street address,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Default town or city: users default town or city,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Default county: users default county,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Default postcode: users default postcode,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Default country: users default country,<br>
+}
+
+**RATINGS**
+**Collection: Ratings**<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name: name written by user,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Decription: review text written by user,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;User: Users registered username,<br>
 }
 
 #### Security
 
-Database connection details are set up in an [env.py](https://pypi.org/project/env.py/) for development, for 
-security reasons this is not uploaded to GitHub so that database and connection details are not visible to 
-users. In production these are stored in Heroku. 
+Database connection details are set up in config variables for security reasons this is not uploaded to GitHub so that database and connection details are not visible to users. In production these are stored in Heroku. 
 
 
 ### **The Surface Plane**
 ### Design
 
 #### Colour Scheme
-The main background colour is plain white ![#fff] for the body
+The main background colour is light green ![#e6ffe6] for the body
 
-The footers background color i adopted from the  Material Design Boostrap Footer Template, which are light grey ![#f8f9fa] and black with low opacity rgba(0, 0, 0, 0.05).
+The Skull Logo, footer on the Home page have a nice strong green [#74AA50]background color i adopted from the smashinglogo.com, where i created and bought the skull logo.
 
-All the buttons backgrounds and border color are from the standard Bootstrap class btn-primary, which is blue ![#0d6efd]. 
+The buttons are mostly styled using Bootstraps btn classes. The backgrounds are a mix colors depending on the use. Buttons used to accept or direct to a new page have the same green background as the logo and the footer. Cancel buttons are black. Keep Shopping buttons are white. The buttons concerning login and out etc are not consistent with the styling of the site, and are black for sign up and sign in, white for cancel or back. 
 
-The main website text is black ![#000000] and the footer text is ![#6c757d].
+The main website text is mostly black [#0000], sometimes [#21252C] inherited from the body element. The navigations background is white [#fff].
 
-Several other colors have also been used on small objects on the site.
+Several other colors have also been used on small objects on the site like red from the danger class.
 
 #### Typography
 
-Plain text is font-family: 'Poppins', sans-serif;.
-
-Headings are font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;.
+Plain text and headings is font-family: 'Lato'.
 
 #### Imagery
-A background is used on all pages displaying the character Ned Stark, from the show "Game of Thrones", sitting on "the iron throne". This image was 
-taken from [The New Daily](https://1v1d1e1lmiki1lgcvx32p49h8fe-wpengine.netdna-ssl.com/wp-content/uploads/2016/06/ned-stark-game-of-thrones-740x385.jpg). 
+The Home page displays the big logo with the nice darker green for background. A plain background of light green is used on all pages displaying the site name, logo and navigations at the top of the page.
+The logo was made by me and bought using [smashinglogo.com].
 
-The website logo was created only using the the initials of the name "(I)nternational (S)eries (D)ata(b)ase in plain white text.
-
-Other Images can vary depending on what pictures are stored on the show cards in the database.
+Images and information about the furniture and lightings where borrowed from the website of the swedish furniture store Länna Möbler, [https://www.lannamobler.se/].
 
 ****
 ## Features
@@ -403,22 +441,28 @@ Other Images can vary depending on what pictures are stored on the show cards in
 ### Existing Features
 
 * Home page displaying images and information on the sites purpose.
+* Responsive design to suit desktop as well as mobile devices.
+* Easy to use navigation.
 * User sign up functionality.
 * Log in / Log out functionality.
-* Event page that displays the next six events from todays date and allows users to search for events.
-* Post New Show page allowing logged in users to post a new show.
-* Profile page showing user information and shows posted by the user with update and delete functionality.
-* Contact page with form connected to database contact Collection.
-* Mobile responsive design.
-* Site wide footer containing contact information, social media links, Copyright info and useful Site Links to streaming services.
+* Page that displays all the furniture and lightings that are currently for sale in the store.
+* All the details on the individual furnitures and Lighting displayed on separate pages.
+* Furnitures shown in categories and the possibility to sort them by price, brand and category.
+* A searchfield that allows users to search for furnitures by writing a word and clicking search.
+* Functionality for store owner to post, update and delete furniture.
+* Profile page for users to save and read basic user information and past order information.
+* Support page with contact-form connected to database Supports Collection.
+* Display of all the users posted ratings and reviews.
+* Registered user creation and management of their own ratings.
+* Fast and secure checkout and payment with Stripe.
 
 ### Features to be added
 
-A feature to be included in a new release would be a searchfield. This would give the users a faster way to find a show in the Db especially when the amount of shows grow.
+A feature to be included in a new release would be thew functionality to delete a furniture when a user bought it. Since there are only one item of every furniture.
 
-Filter and sort buttons would also make it easier for the user to navigate between different shows based on preference.
+A functionality for users to post their own used furniture in the store would be a great feature.
 
-Each show having its own rank based on the average rating of the users, would be a great feature. Teh the user would have the possibility to filter all the shows based on any of the bits of information, for example "genre", and then sort them by ranking, finding the highest rated show in that genre. 
+Maybe som sort of functionality to auction out the furniture to the highest bidder.
 
 ****
 ## Technologies
@@ -464,10 +508,12 @@ Each show having its own rank based on the average rating of the users, would be
         * stripe==2.74.0
 
 
-* [MongoDB](https://www.mongodb.com/1)
-    * MongoDB was used to create the document based databases(collections) used as data storage for this project.
+* [django](https://www.djangoproject.com/)
+    * Django was used to create the apps and manage the databases used as data storage for this project.
+* [AWS](https://aws.amazon.com/?nc2=h_lg)
+* Amazon Wed Services and Postgres was used to store all static and media files.
 * [Google Fonts](https://fonts.google.com/)
-	* Google fonts are used throughout the project to import the *Inter* and *Bevan* fonts.
+	* Google fonts are used throughout the project.
 * [GitHub](https://github.com/)
 	* GithHub is the hosting site used to store the source code for the Website.
 * [Git](https://git-scm.com/)
@@ -558,18 +604,6 @@ Most important issues to improve Performance was to send pictures in more modern
 
 Testing was performed to ensure all navigation links on the respective pages, navigated to the correct pages as per design. This was done by clicking on the navigation links on each page.
 
-| Navigation Link | Page to Load    |
-| --------------- | --------------- |
-| Icon-link       | index.html      |
-| Home            | index.html      |
-| Login           | login.html      |
-| Register        | register.html   |
-| Contact         | contact.html    |
-| Your Profile    | profile.html    |
-| All Shows       | cards.html      |
-| New Show        | post_show.html  |
-| Log Out         | login.html      |
-
 Links on all pages navigated to the correct pages as exptected.
 
 **Form Testing**
@@ -589,7 +623,7 @@ Steps to test:
 
 Expected:
 
-Form submits with no warnings or errors and user is redirected to the logged in users profile.html page. Successmessage is displayed
+Form submits with no warnings or errors and user is redirected to the logged in users profile.html page. Success-message is displayed
 that user successfully signed in as <username>.
 
 Actual:
@@ -631,78 +665,29 @@ Steps to test:
 
 Expected:
 
-Show is deleted with no warnings or errors and user is redirected to the ratings page and flash message informs user about success of 
-deletion.
+Show is deleted with no warnings or errors and user is redirected to the ratings page and flash message informs user about success of deletion.
 
 Actual:
 
 Website behaved as expected with no errors or warnings and redirected to ratings page.
 
-
 _Scenario Four - Correct Inputs_
 
 Steps to test:
 
-1. Navigate to [ISDb](http://ms3-seriesdb-project.herokuapp.com/cards)
-2. Scroll down to the form and select a posted show a show:
-   - Press Rate Show button.
-   - modal is displayed asking for user to Rate show by clicking desired amount of star and writing a short review.
-3. Press Save Rating button.
-4. User redirects to cards.html and flash message informs about Rating Successful.
-5. Press Review heading to display accordion info, check if the posted rating is displayed.
+1. Navigate to [Vintage Funriture](https://ms4-vintage-furniture.herokuapp.com/support)
+2. Write a name in the designated namefield
+3. Write a short messsage int the designated textfield.
+3. Press Submit button.
+4. User redirects to Homepage and success message informs about the support message was sent Successfully.
 
 Expected:
 
-Rating is posted with no warnings or errors and user is redirected to the cards.html page and flash message informs user about success of 
-rating.
+Support message is sent with no warnings or errors and user is redirected to the home page and success message informs user about success of message sent.
 
 Actual:
 
-Website behaved as expected with no errors or warnings and redirected to cards.html.
-
-
-_Scenario Five - Correct Inputs_
-
-Steps to test:
-
-1. Navigate to [ISDb](http://ms3-seriesdb-project.herokuapp.com/post_show)
-2. Fill in the information about the show:
-   - Choose info in dropdowns.
-   - fill in info in textfields.
-   - paste in a correct link for the Picture Link.
-3. Press Post Show button.
-4. Navigate to profile page to find the posted show.
-
-Expected:
-
-Show is posted with no warnings or errors and user is redirected to the post_show.html page and flash message informs user about success of 
-Post.
-
-Actual:
-
-Website behaved as expected with no errors or warnings and redirected to post_show.html.
-
-
-_Scenario Six - Correct Inputs_
-
-Steps to test:
-
-1. Navigate to [ISDb](http://ms3-seriesdb-project.herokuapp.com/post_show)
-2. Fill in the information about the show:
-   - Choose info in dropdowns.
-   - fill in info in textfields.
-   - paste in a correct link for the Picture Link.
-3. Press Post Show button.
-4. Navigate to profile page to find the posted show.
-
-Expected:
-
-Show is posted with no warnings or errors and user is redirected to the post_show.html page and flash message informs user about success of 
-Post.
-
-Actual:
-
-Website behaved as expected with no errors or warnings and redirected to post_show.html.
+Website behaved as expected with no errors or warnings and redirected to home page.
 
 
 **Footer Social Media Icons / Links**
@@ -727,14 +712,14 @@ CSS Code passed through the with no errors [W3C CSS Validator](https://jigsaw.w3
 
 JavaScript code passed through the with no errors[JSHint Validator](https://jshint.com/).
 
-Python Code passed through with no errors[PEP8 Validator](http://pep8online.com/).
+Python Code passed through with some errors[PEP8 Validator](http://pep8online.com/). Since I have not learned the indentation rules, I have left some lines too long behind. Sorry for that.
 
 
 #### **Access Requirements**
-For testing the site, just register a new user and then login.
+For testing the site, just register a new user, verify your account via the confirmation email and then login.
 
 In order to manually verify the insertion of records to the 
-collections, the tester must have access to MongoDB.
+collections, the tester must have access to Django and AWS.
 
 #### **Regression Testing**
 All features previous tested during development in a local environment must be regression 
@@ -742,11 +727,6 @@ tested in production on the live website.
 
 #### **Assumptions and Dependencies**
 Testing is dependent on the website being deployed live on Heroku.
-
-
-### Test Results
-
-Results to be found in: (/workspace/ms3-seriesdb/testing)
 
 ****
 ## Deployment
@@ -760,8 +740,6 @@ clicked Create repository from template button.
 
 Once created, I navigated to my new repository on GitHub and clicked the Gitpod button which built my workspace.
 
-I then created a Python virtual environment to work with this project separately with its own dependencies.
-
 The following commands were used for version control throughout the project:
 
 * git add *filename* - This command was used to add files to the staging area before committing.
@@ -772,48 +750,101 @@ The following commands were used for version control throughout the project:
 
 
 ### Deployment to Heroku
+Connecting to Heroku
+The project was developed using GitPod and pushed to GitHub then deployed on Heroku using these instructions:
 
-**Create application:**
-1. Navigate to Heroku.com and login.
-1. Click on the new button.
-1. Select create new app.
-1. Enter the app name.
-1. Select region.
-
-**Set up connection to Github Repository:**
-
-1. Click the deploy tab and select GitHub - Connect to GitHub.
-1. A prompt to find a github repository to connect to will then be displayed.
-1. Enter the repository name for the project and click search.
-1. Once the repo has been found, click the connect button.
+Log in to Heroku and create a new app by clicking "New" and "Create New App" and giving it an original name and setting the region to closest to your location.
+Navigate to Heroku Resources and add Postgres using the free plan.
+Create a requirements.txt file using command pip3 freeze > requirements.txt
+Create a Procfile with the terminal command web: gunicorn the_vitamin_store.wsgi:application* and at this point checking the Procfile to make sure there is no extra blank line as this can cause issues when deploying to Heroku.
+Use the loaddata command to load the fixtures for both json files: python3 manage.py loaddata categories.json* and python3 manage.py loaddata products.json
+If it returns error message: django.db.utils.OperationalError: FATAL: role "somerandomletters" does not exist* run unset PGHOSTADDR in your terminal and run the commands in step 11 again.
+From the CLI log in to Heroku using command heroku login -i.
+Temporarily disable Collectstatic by running: heroku:config:set DISABLE_COLLECTSTATIC=1 --app "heroku-app-name" So that Heroku won't try to collect static files when we deploy.
+Add Heroku app name to ALLOWED_HOSTS in settings.py.
+Commit changes to GitHub using git add ., git commit -m and the commit message, then git push.
+Then deploy to Heroku using git push heroku main If the git remote isn't initialised you may have to do that first by running heroku git:remote -a "heroku-app-name"
+Create a superuser using command: heroku run python3 manage.py createsuperuser so that you can log in to admin as required.
+From Heroku dashboard click "Deploy" -> "Deployment Method" and select "GitHub"
+Search for your GitHub repo and connect then Enable Automatic Deploys.
+Generate secret key. Strong secret keys can be obtained from RandomKeygen. This automatically generates a secret key 50 characters long with alphanumeric characters and symbols.
+Add secret key to GitPod variables and Heroku config vars.
+Set up Amazon AWS S3 bucket using instructions below
+In the dashboard click "Settings" -> "Reveal Config Vars"
+Set config vars using advice below.
 
 **Set environment variables:**
 
-Click the settings tab and then click the Reveal Config Vars button and add the following:
+Click the settings tab and then click the Reveal Config Vars button and the following was added:
 
-1. key: IP, value: 0.0.0.0
-2. key: PORT, value: 5000
-3. key: MONGO_DBNAME, value: (database name you want to connect to)
-4. key: MONGO_URI, value: (mongo uri - This can be found in MongoDB by going to clusters > connect > connect to your application and substituting the password and 
-    dbname that you set up in the link).
-5. key: SECRET_KEY, value: (This is a custom secret key set up for configuration to keep client-side sessions secure).
+1. DATABASE_URL, to Postgres
+2. AWS_ACCESS_KEY_ID
+3. AWS_SECRET_ACCESS_KEY
+4. EMAIL_HOST_PASS
+5. EMAIL_HOST_USER
+6. SECRET_KEY
+7. STRIPE_PUBLIC_KEY
+8. STRIPE_SECRET_KEY
+9. STRIPE_WH_SECRET
+10. USE_AWS, True
+
+**Where to find Config Var Key-value Pairs**
+To find the values of each key:
+
+SECRET_KEY: Is a random string provided when creating the Django project bee sure to change it to ensure extra security.
+DATABASE_URL: Is temporary.
+STRIPE_PUBLIC_KEY: Retrived from Stripe Dashboard in the Developer's API section (Publishable key).
+STRIPE_SECRET_KEY: Retrived from Stripe Dashboard in the Developer's API section (Secret key)
+STRIPE_WH_SECRET: Retrived from Stripe Dashboard in the Developer's after creating an endpoint for your webhook (Signing secret).
+EMAIL_HOST_USER: Your email address or username.
+EMAIL_HOST_PASS: Your passcode from your email client.
+AWS_SECRET_ACCESS_KEY: From the CSV file that you download having created a User in Amazon AWS S3.
+AWS_ACCESS_KEY_ID: From the CSV file that you download having created a User in Amazon AWS S3.
 
 **Enable automatic deployment:**
 1. Click the Deploy tab
 1. In the Automatic deploys section, choose the branch you want to deploy from then click Enable Automation Deploys.
 
-### Run Locally
+**Amazon AWS**
+Create Amazon AWS account and create a new bucket in the S3 services and choose your closest region.
+Uncheck block all public access and create bucket.
+From Properties tab turn on static website hosting using default values of index.html and errors.html.
+On permissions tab include CORS configuration.
 
-**Note: The project will not run locally with database connections unless the user sets up an [env.py](https://pypi.org/project/env.py/) file configuring IP, PORT, 
-MONGO_URI, MONGO_DBNAME and SECRET_KEY. You must have the connection details in order to do this. These details are private and not disclosed in this repository 
-for security purposes.**
+Create security policy: S3 Bucket Policy, allow all principles by adding a "" and Amazon S3 services and selecting Get Object action. Paste ARN from Bucket Policy, add statement, generate policy and copy and paste into Bucket Policy. Also add "/" at end of resource key to allow use of all pages.
 
-1. Navigate to the GitHub [Repository](https://github.com/SebastianTirsen/ms3-seriesdb).
-1. Click the Code drop down menu.
-1. Either Download the ZIP file, unpackage locally and open with IDE (This route ends here) OR Copy Git URL from the HTTPS dialogue box.
-1. Open your developement editor of choice and open a terminal window in a directory of your choice.
-1. Use the 'git clone' command in terminal followed by the copied git URL.
-1. A clone of the project will be created locally on your machine.
+Under public access select access to all List Objects.
+
+Create Group for the bucket through IAM. Create policy by importing AWS S3 Full Access policy and add ARN from bucket to the policy resources. Attach policy to group.
+
+Create user, give programmatic access and add user to the group. Download CSV file when prompted to save access key ID an secret access key to save to environment and config variables.
+
+Add AWS_STORAGE_BUCKET_NAME, AWS_S3_REGION_NAME = 'eu-north-1' to settings.py.
+
+Add, commit and push to GitHub then navigate to Heroku to confirm static files collected successfully on the Build Log. The DISABLE_COLLECTSTATIC variable can now be deleted.
+
+**gmail Client**
+In 'settings.py' change the 'DEFAULT_FROM_EMAIL' to your own email address.
+
+Go to your Gmail account and navigate to the 'Settings' tab.
+Go to 'Accounts and Imports', 'Other Google Account Settings'.
+Go to the 'Security' tab, and scroll down to 'Signing in to Google'.
+If required, click to turn on '2-step Verification', then 'Get Started', and enter your password.
+Verify using your preferred method, and turn on 2-step verification.
+Go back to 'Security', 'Signing in to Google', then go to 'App Passwords'.
+Enter your password again if prompted, then set 'App' to 'Mail', 'Device' to 'Other', and type in 'Django'.
+Copy and paste the passcode that shows up, this is your 'EMAIL_HOST_PASS' variable to add to your environment/config variables. 'EMAIL_HOST_USER' is the Gmail email address.
+
+
+### Run the project locally
+To clone this project from GitHub follow the instructions taken from GitHub Docs explained here:
+
+Navigate to the GitHub Repository
+To clone using HTTPS click the clipboard symbol under "Clone with HTTPS". To clone using SSH key click Use SSH then click the clipboard symbol. To clone using GitHub CLI select Use GitHub CLI and click the clipboard symbol.
+Open Git Bash
+Change the working directory to the location you want the cloned directory to be.
+Type 'git clone' and paste the url copied from step 3.
+Press 'enter' to create your clone.
 
 Once the project has been loaded into an IDE of choice, run the following command in the shell to install all the required packages:
 > pip install -r requirements.txt
@@ -835,10 +866,7 @@ for your own idea. - Definition from [Github Docs](https://docs.github.com/en/fr
 
 ## Graphic & Design Credits
 
-Hero image - Taken from [The New Daily](https://1v1d1e1lmiki1lgcvx32p49h8fe-wpengine.netdna-ssl.com/wp-content/uploads/2016/06/ned-stark-game-of-thrones-740x385.jpg)
-
-Theme Template:
-(https://startbootstrap.com/theme/clean-blog)
+www.smashinglogo.com
 
 
 ### Code

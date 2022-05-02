@@ -14,6 +14,7 @@ from dolly.contexts import dolly_contents
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 
+
 @require_POST
 def cache_checkout_data(request):
     try:
@@ -25,9 +26,9 @@ def cache_checkout_data(request):
             'username': request.user,
         })
         return HttpResponse(status=200)
-    except Exception as e :
+    except Exception as e:
         messages.error(request, 'Sorry, your payment cant be \
-            processed right now. Please try again later.' )
+            processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
 
 
@@ -74,7 +75,8 @@ def checkout(request):
                         )
                         order_line_item.save()
                     else:
-                        for size, quantity in item_data['items_by_size'].items():
+                        for size, quantity in item_data[
+                           'items_by_size'].items():
                             order_line_item = OrderLineItem(
                                 order=order,
                                 furniture=furniture,
@@ -84,7 +86,8 @@ def checkout(request):
                             order_line_item.save()
                 except Furniture.DoesNotExist:
                     messages.error(request, (
-                        "One of the furnitures on your dolly wasn't found in our store. "
+                        "One of the furnitures on your dolly " +
+                        "wasn't found in our store. "
                         "Please call us for assistance!")
                     )
                     order.delete()
@@ -92,14 +95,16 @@ def checkout(request):
 
             request.session['save_info'] = 'save-info' in request.POST
             print('checkout success reached')
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse(
+                'checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
     else:
         dolly = request.session.get('dolly', {})
         if not dolly:
-            messages.error(request, "There's nothing on your dolly at the moment")
+            messages.error(request,
+                           "There's nothing on your dolly at the moment")
             return redirect(reverse('furnitures'))
 
         currrent_dolly = dolly_contents(request)
@@ -111,7 +116,7 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        # Attempt to prefill the form with any info the user maintains in their profile
+        # Attempt to prefill form with info the user has in profile
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)

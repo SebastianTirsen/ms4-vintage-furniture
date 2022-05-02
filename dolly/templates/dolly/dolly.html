@@ -31,7 +31,7 @@
                                     <th scope="col"></th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Qty</th>
-                                    <th scope="col">Subtotal</th>
+                                    <th colspan="3" scope="col">Subtotal</th>
                                 </tr>
                             </thead>
 
@@ -57,16 +57,18 @@
                                     <td class="py-3">
                                         <p class="my-0">{{ item.furniture.price }} SEK</p>
                                     </td>
+                                    <td>
                                     <form class="form update-form" method="POST" action="{% url 'remove_from_dolly' item.item_id %}">
                                         {% csrf_token %}
                                     </form>
+                                    </td>
                                     <td class="py-3">
                                         <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}"><i class="fas fa-trash"></i> <small>Remove</small></a>
                                     </td>
                                 </tr>
                             {% endfor %}
                                 <tr>
-                                    <td colspan="5" class="pt-5 text-right">
+                                    <td colspan="7" class="pt-5 text-right">
                                         <h6><strong>Dolly Total: {{ total|floatformat:2 }} SEK</strong></h6>
                                         <h6>Delivery: {{ delivery|floatformat:2 }} SEK</h6>
                                         <h4 class="mt-4"><strong>Grand Total: {{ grand_total|floatformat:2 }} SEK</strong></h4>
@@ -78,7 +80,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="5" class="text-right">
+                                    <td colspan="7" class="text-right">
                                         <a href="{% url 'furnitures' %}" class="btn btn-outline-black rounded-0 btn-lg">
                                             <span class="icon">
                                                 <i class="fas fa-chevron-left"></i>

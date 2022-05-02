@@ -3,6 +3,7 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from furnitures.models import Furniture
 
+
 def dolly_contents(request):
 
     dolly_items = []

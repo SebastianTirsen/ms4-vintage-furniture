@@ -5,7 +5,7 @@ from .models import Rating
 
 def rating(request):
     all_data = Rating.objects.all()
-    ratings = {'all_data':all_data}
+    ratings = {'all_data': all_data}
     return render(request, "rate.html", ratings)
 
 

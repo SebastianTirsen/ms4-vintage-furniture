@@ -5,6 +5,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from .models import Support
 
+
 class SupportForm(forms.ModelForm):
     class Meta:
         model = Support
@@ -23,7 +24,8 @@ class FurnitureForm(forms.ModelForm):
         model = Furniture
         fields = '__all__'
 
-    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+    image = forms.ImageField(
+        label='Image', required=False, widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

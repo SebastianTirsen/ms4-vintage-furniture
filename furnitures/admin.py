@@ -3,6 +3,7 @@ from .models import Furniture, Category, Support
 
 # Register your models here.
 
+
 class FurnitureAdmin(admin.ModelAdmin):
     list_display = (
         'category',
@@ -15,11 +16,13 @@ class FurnitureAdmin(admin.ModelAdmin):
 
     ordering = ('category',)
 
+
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',
         'name',
     )
+
 
 class SupportAdmin(admin.ModelAdmin):
     list_display = (

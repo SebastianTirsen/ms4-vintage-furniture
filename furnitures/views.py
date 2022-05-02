@@ -43,12 +43,14 @@ def all_furniture(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(request,
+                               "You didn't enter any search criteria!")
                 return redirect(reverse('furnitures'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | Q(
+                description__icontains=query)
             furnitures = furnitures.filter(queries)
-    
+
     current_sorting = f'{sort}_{direction}'
 
     context = {
@@ -82,7 +84,9 @@ class SupportCreateView(CreateView):
         form = SupportForm(self.request.POST, self.request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(self.request, 'Successfully sent your message. We will contact you shortly.')
+            messages.success(self.request,
+                             'Successfully sent your message. ' +
+                             'We will contact you shortly.')
         return redirect(reverse('home'))
 
 
@@ -100,10 +104,12 @@ def add_furniture(request):
             messages.success(request, 'Successfully added furniture!')
             return redirect(reverse('add_furniture'))
         else:
-            messages.error(request, 'Failed to add furniture. Please ensure the form is valid.')
+            messages.error(request,
+                           'Failed to add furniture. ' +
+                           'Please ensure the form is valid.')
     else:
         form = FurnitureForm()
-        
+
     template = 'furnitures/add_furniture.html'
     context = {
         'form': form,
@@ -127,7 +133,9 @@ def edit_furniture(request, furniture_id):
             messages.success(request, 'Successfully updated furniture!')
             return redirect(reverse('furniture_detail', args=[furniture.id]))
         else:
-            messages.error(request, 'Failed to update furniture. Please ensure the form is valid.')
+            messages.error(request,
+                           'Failed to update furniture. ' +
+                           'Please ensure the form is valid.')
     else:
         form = FurnitureForm(instance=furniture)
         messages.info(request, f'You are editing {furniture.name}')

@@ -5,9 +5,11 @@ from furnitures.models import Furniture
 
 # Create your views here.
 
+
 def view_dolly(request):
 
     return render(request, 'dolly/dolly.html')
+
 
 def put_on_dolly(request, item_id):
     furniture = get_object_or_404(Furniture, pk=item_id)
@@ -19,7 +21,8 @@ def put_on_dolly(request, item_id):
         dolly[item_id] += quantity
     else:
         dolly[item_id] = quantity
-        messages.success(request, f'You put { furniture.name } on your Dolly! ')
+        messages.success(request,
+                         f'You put { furniture.name } on your Dolly! ')
 
     request.session['dolly'] = dolly
     return redirect(redirect_url)
@@ -30,7 +33,8 @@ def remove_from_dolly(request, item_id):
         furniture = get_object_or_404(Furniture, pk=item_id)
         dolly = request.session.get('dolly', {})
         dolly.pop(item_id)
-        messages.success(request, f'Unloaded { furniture.name } from your Dolly!')
+        messages.success(request,
+                         f'Unloaded { furniture.name } from your Dolly!')
 
         request.session['dolly'] = dolly
         return HttpResponse(status=200)
